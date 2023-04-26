@@ -12,7 +12,5 @@ public record RavgroovUser(
         Timestamp joiningDate
 
 ) {
-    public RavgroovUser() {
-        this(null, null, null, null, null);
-    }
+
 }

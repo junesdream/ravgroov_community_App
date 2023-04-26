@@ -10,7 +10,5 @@ public record Post(
     String postImg,
     Boolean like
 ) {
-    public Post() {
-        this(null, null, null, null, null, null);
-    }
+
 }
