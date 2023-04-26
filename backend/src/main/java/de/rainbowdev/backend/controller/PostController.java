@@ -3,9 +3,7 @@ package de.rainbowdev.backend.controller;
 import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,12 @@ public class PostController {
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
+
+    @PostMapping
+    public Post addPost(@RequestBody Post post) {
+        return postService.addPost(post);
+    }
+
+
 }
 
