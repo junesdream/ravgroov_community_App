@@ -18,7 +18,7 @@ function App() {
             .catch((error) => {
                 console.error(error)
             })
-    };
+    }
 
     function addPost(postToAdd: NewPost) {
 
@@ -30,7 +30,7 @@ function App() {
             .catch((error) => {
                 error("Unknown Error, try again later! " + error.response.statusText, {autoClose: 10000})
             })
-    };
+    }
 
     useEffect(() => {
         allPosts()

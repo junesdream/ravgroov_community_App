@@ -1,6 +1,6 @@
-import React, {FormEvent, FormEventHandler, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import "./AddPost.css"
-import {NewPost, Post} from "../../model/Post";
+import {NewPost} from "../../model/Post";
 import {useNavigate} from "react-router-dom";
 
 type AddPostProps = {
@@ -26,7 +26,7 @@ export default function AddPost(props: AddPostProps) {
         setPost(initialState)
         navigate("/posts")
 
-    };
+    }
 
 const updatePost = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const name = event.target.name;
@@ -39,7 +39,7 @@ const updatePost = (event: React.ChangeEvent<HTMLInputElement>) =>{
 
     return (
         <div className="add_post">
-            <form className="add_input"onSubmit={onSavePost} >
+            <form className="add_input" onSubmit={onSavePost} >
                 <input className="addT_postTitle" type="text" name="title" value={post.title} onChange={(event) => updatePost(event)}/>
                 <input className="add_postUsername" type="text" name="userName" value={post.userName} onChange={(event) => updatePost(event)} />
                 <input className="add_postPostimg" type="text" name="postImg" value={post.postImg} onChange={(event) => updatePost(event)}/>

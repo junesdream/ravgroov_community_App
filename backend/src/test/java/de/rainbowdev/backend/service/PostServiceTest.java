@@ -3,7 +3,7 @@ package de.rainbowdev.backend.service;
 import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.repository.PostRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+
 
 import java.util.Collections;
 import java.util.List;
