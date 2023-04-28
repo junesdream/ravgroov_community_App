@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -29,6 +30,26 @@ class PostServiceTest {
 
         //THEN
         verify(postRepository).findAll();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getPostById() {
+
+        String id = "644bb7feab61312259736934";
+        Post expected = new Post(
+                "644bb7feab61312259736934",
+                "Spring Sound",
+                "Beatland",
+                "",
+                "This is how i feel",
+                true
+        );
+        when(postRepository.findById(id)).thenReturn(Optional.of(expected));
+        // WHEN
+        Post actual = postService.getPostById(id);
+
+        verify(postRepository).findById(id);
         assertEquals(expected, actual);
     }
 

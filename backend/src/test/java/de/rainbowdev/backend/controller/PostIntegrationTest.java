@@ -36,6 +36,37 @@ class PostIntegrationTest {
                         """));
     }
 
+    @DirtiesContext
+    @Test
+    void getPostById() throws Exception {
+        mockMvc.perform(post("/api/posts")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                        "id": "3939",
+                                        "title": "Spcae Disco",
+                                        "userName": "Kinda Beat",
+                                        "postImg": " ",
+                                        "description": "Holidays are fine now!",
+                                        "like": true
+                                }
+                                """)
+                )
+                .andExpect(status().isOk());
+        mockMvc.perform(get("/api/posts/3939"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                            "id": "3939",
+                                        "title": "Spcae Disco",
+                                        "userName": "Kinda Beat",
+                                        "postImg": " ",
+                                        "description": "Holidays are fine now!",
+                                        "like": true
+                        }
+                         """));
+    }
+
     @Test
     void addPost() throws Exception {
         mockMvc.perform(post("/api/posts")

@@ -20,6 +20,11 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    @GetMapping("/{id}")
+    Post getPostById(@PathVariable String id) {
+        return postService.getPostById(id);
+    }
+
     @PostMapping
     public Post addPost(@RequestBody Post post) {
         return postService.addPost(post);
