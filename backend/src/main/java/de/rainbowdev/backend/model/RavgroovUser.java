@@ -6,6 +6,7 @@ import java.util.List;
 public record RavgroovUser(
 
         String id,
+        String userId,
         String userImg,
         String email,
         List<String> friends,
@@ -14,3 +15,4 @@ public record RavgroovUser(
 ) {
 
 }
+
