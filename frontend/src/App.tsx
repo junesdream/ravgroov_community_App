@@ -5,6 +5,8 @@ import {Post, NewPost} from "./model/Post";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PostGallery from "./components/PostGallery/PostGallery";
 import AddPost from "./components/AddPost/AddPost";
+import PostDetail from "./components/PostDetail/PostDetail";
+
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/"/>
+
+                    <Route path="/posts/:id" element={<PostDetail />} />
                     <Route path="/posts" element={<PostGallery posts={posts} addPost={addPost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
                 </Routes>

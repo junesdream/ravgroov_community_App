@@ -17,7 +17,12 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public Post getPostById(String id) {
+        return postRepository.findById(id).orElseThrow();
+    }
+
     public Post addPost(Post post) {
         return postRepository.save(post);
     }
+
 }
