@@ -44,9 +44,9 @@ class PostIntegrationTest {
                                 {
                                         "id": "222",
                                         "title": "Spcae Disco",
-                                        "userId": "A123456",
                                         "userName": "Kinda Beat",
                                         "postImg": " ",
+                                        "description": "Holidays are fine now!",
                                         "like": true
                                 }
                                 """)

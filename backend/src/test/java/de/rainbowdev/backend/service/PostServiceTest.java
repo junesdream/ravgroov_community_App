@@ -35,7 +35,7 @@ class PostServiceTest {
     @Test
     void addPost() {
         //GIVEN
-        Post post = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", " ", true);
+        Post post = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!", true);
         when(postRepository.save(post)).thenReturn(post);
 
         //WHEN

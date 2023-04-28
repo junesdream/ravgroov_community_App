@@ -5,12 +5,10 @@ public record Post(
 
     String id,
     String title,
-    String userId,
     String userName,
     String postImg,
+    String description,
     Boolean like
 ) {
-    public Post() {
-        this(null, null, null, null, null, null);
-    }
+
 }

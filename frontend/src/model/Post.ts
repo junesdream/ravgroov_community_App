@@ -1,8 +1,15 @@
 export type Post = {
     id: string,
     title: string,
-    userId: string,
     userName: string,
     postImg: string,
+    description: string,
     like: boolean
+}
+
+export type NewPost = {
+    title: string,
+    userName: string,
+    postImg: string,
+    description: string
 }

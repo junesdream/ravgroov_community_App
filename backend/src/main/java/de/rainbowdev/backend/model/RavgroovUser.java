@@ -6,13 +6,13 @@ import java.util.List;
 public record RavgroovUser(
 
         String id,
+        String userId,
         String userImg,
         String email,
         List<String> friends,
         Timestamp joiningDate
 
 ) {
-    public RavgroovUser() {
-        this(null, null, null, null, null);
-    }
+
 }
+
