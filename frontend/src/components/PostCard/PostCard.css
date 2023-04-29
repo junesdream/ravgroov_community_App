@@ -1,3 +1,21 @@
 .post_card{
     padding: 20px;
 }
+
+.post_card-btn{
+    padding: 10px;
+}
+
+.post_card-btn button{
+    width: 80px;
+    padding: 10px;
+    margin: 0px 10px;
+    border: none;
+    background-color: black;
+    border: 3px solid deeppink;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+}

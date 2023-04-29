@@ -1,5 +1,6 @@
 package de.rainbowdev.backend.controller;
 
+import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.repository.PostRepository;
 
 import org.junit.jupiter.api.Test;
@@ -25,6 +26,7 @@ class PostIntegrationTest {
 
     @Autowired
     PostRepository postRepository;
+
 
     @Test
     void getAllPosts() throws Exception {
@@ -57,7 +59,7 @@ class PostIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
                         {
-                            "id": "3939",
+                                        "id": "3939",
                                         "title": "Spcae Disco",
                                         "userName": "Kinda Beat",
                                         "postImg": " ",
@@ -84,4 +86,18 @@ class PostIntegrationTest {
                 )
                 .andExpect(status().isOk());
     }
+
+
+    @Test
+    void expectSuccessfulDelete() throws Exception {
+        mockMvc.perform(delete("/api/posts/3939"))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/api/posts"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        []
+                        """));
+    }
+
 }

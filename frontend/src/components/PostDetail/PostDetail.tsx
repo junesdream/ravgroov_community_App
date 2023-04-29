@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 export default function PostDetail() {
+
     const [post, setPost] = useState<Post>();
     const {id} = useParams<{id: string}>()
 
@@ -25,6 +26,7 @@ export default function PostDetail() {
                 console.error("Post not found" + r)
             })
     }
+
         return (
             <div className="post_detail">
                 {

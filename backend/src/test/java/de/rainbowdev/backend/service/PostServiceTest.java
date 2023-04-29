@@ -66,4 +66,15 @@ class PostServiceTest {
         verify(postRepository).save(post);
         assertEquals(post, actual);
     }
+
+    @Test
+    void deletePostById(){
+        //GIVEN
+        String id ="644bb7feab61312259736934";
+
+        //WHEN
+        postService.delete(id);
+        //THEN
+        verify(postRepository).deleteById(id);
+    }
 }

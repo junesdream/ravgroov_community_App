@@ -38,6 +38,16 @@ function App() {
         allPosts()
     }, []);
 
+    function deletePost(id: string) {
+        axios.delete("/api/posts/" + id)
+            .then(() => {
+                setPosts(posts.filter((post) => post.id !== id))
+            })
+            .catch((r) => {
+                console.error(r)
+            })
+}
+
 
     return (
         <div className="App">
@@ -46,7 +56,7 @@ function App() {
                     <Route path="/"/>
 
                     <Route path="/posts/:id" element={<PostDetail />} />
-                    <Route path="/posts" element={<PostGallery posts={posts} addPost={addPost}/>}/>
+                    <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost} />}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
                 </Routes>
             </BrowserRouter>
