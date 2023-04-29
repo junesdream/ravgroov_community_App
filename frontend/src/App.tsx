@@ -46,7 +46,7 @@ function App() {
             .catch((r) => {
                 console.error(r)
             })
-}
+    }
 
 
     return (
@@ -55,8 +55,8 @@ function App() {
                 <Routes>
                     <Route path="/"/>
 
-                    <Route path="/posts/:id" element={<PostDetail />} />
-                    <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost} />}/>
+                    <Route path="/posts/:id" element={<PostDetail/>}/>
+                    <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
                 </Routes>
             </BrowserRouter>

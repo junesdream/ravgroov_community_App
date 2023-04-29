@@ -8,10 +8,10 @@ import axios from "axios";
 export default function PostDetail() {
 
     const [post, setPost] = useState<Post>();
-    const {id} = useParams<{id: string}>()
+    const {id} = useParams<{ id: string }>()
 
     useEffect(() => {
-        if(id) {
+        if (id) {
             loadPostById(id);
         }
         //eslint-disable-next-line
@@ -27,20 +27,20 @@ export default function PostDetail() {
             })
     }
 
-        return (
-            <div className="post_detail">
-                {
-                    post
-                        ? <div className="detail-content">
-                            <p>{post.id}</p>
-                            <p>{post.title}</p>
-                            <p>{post.userName}</p>
-                            <p>{post.postImg}</p>
-                            <p>{post.description}</p>
-                            <p>{post.like}</p>
-                        </div>
-                        : <div>Loading...</div>
-                }
-            </div>
-        )
-    }
+    return (
+        <div className="post_detail">
+            {
+                post
+                    ? <div className="detail-content">
+                        <p>{post.id}</p>
+                        <p>{post.title}</p>
+                        <p>{post.userName}</p>
+                        <p>{post.postImg}</p>
+                        <p>{post.description}</p>
+                        <p>{post.like}</p>
+                    </div>
+                    : <div>Loading...</div>
+            }
+        </div>
+    )
+}

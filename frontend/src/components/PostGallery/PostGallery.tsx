@@ -4,7 +4,6 @@ import './PostGallery.css';
 import PostCard from "../PostCard/PostCard";
 
 
-
 type Props = {
     posts: Post[]
     deletePost: (it: string) => void
@@ -17,7 +16,7 @@ export default function PostGallery(props: Props) {
                 <h2>All Posts</h2>
 
                 {
-                    props.posts.map((post) => <PostCard key={post.id} post={post} deletePost={props.deletePost} />)
+                    props.posts.map((post) => <PostCard key={post.id} post={post} deletePost={props.deletePost}/>)
                 }
             </div>
         </div>

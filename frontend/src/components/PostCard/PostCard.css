@@ -1,12 +1,12 @@
-.post_card{
+.post_card {
     padding: 20px;
 }
 
-.post_card-btn{
+.post_card-btn {
     padding: 10px;
 }
 
-.post_card-btn button{
+.post_card-btn button {
     width: 80px;
     padding: 10px;
     margin: 0 10px;
@@ -16,5 +16,4 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
-
 }

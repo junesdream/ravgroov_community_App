@@ -17,7 +17,7 @@ export default function PostCard(props: Props) {
 
     return (
         <div className='post_card'>
-            <h1> Post  </h1>
+            <h1> Post </h1>
             <p>{props.post.title} </p>
             <p>{props.post.userName} </p>
             <p>{props.post.postImg} </p>
@@ -25,11 +25,11 @@ export default function PostCard(props: Props) {
             <p>{props.post.like} </p>
 
             <div className="post_card-btn">
-            <button onClick={() => {
-                navigate('/posts/' + props.post.id)
-            }}>Detail
-            </button>
-            <button onClick={onDeleteClick}>Delete</button>
+                <button onClick={() => {
+                    navigate('/posts/' + props.post.id)
+                }}>Detail
+                </button>
+                <button onClick={onDeleteClick}>Delete</button>
             </div>
 
         </div>
