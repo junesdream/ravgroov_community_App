@@ -1,6 +1,5 @@
 package de.rainbowdev.backend.controller;
 
-import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.repository.PostRepository;
 
 import org.junit.jupiter.api.Test;
