@@ -18,8 +18,6 @@ export default function AddPost(props: AddPostProps) {
     }
     const [post, setPost] = useState<NewPost>(initialState);
 
-
-
     function onSavePost(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         props.addPost(post);

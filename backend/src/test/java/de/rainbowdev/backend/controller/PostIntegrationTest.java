@@ -26,6 +26,7 @@ class PostIntegrationTest {
     @Autowired
     PostRepository postRepository;
 
+
     @Test
     void getAllPosts() throws Exception {
         mockMvc.perform(get("/api/posts"))
@@ -57,7 +58,7 @@ class PostIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
                         {
-                            "id": "3939",
+                                        "id": "3939",
                                         "title": "Spcae Disco",
                                         "userName": "Kinda Beat",
                                         "postImg": " ",
@@ -84,4 +85,18 @@ class PostIntegrationTest {
                 )
                 .andExpect(status().isOk());
     }
+
+
+    @Test
+    void expectSuccessfulDelete() throws Exception {
+        mockMvc.perform(delete("/api/posts/3939"))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/api/posts"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        []
+                        """));
+    }
+
 }
