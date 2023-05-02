@@ -77,6 +77,8 @@ class PostServiceTest {
         when(postRepository.findById(id)).thenReturn(Optional.of(post));
         postService.updatePost(post);
         //THEN
+         verify(postRepository).save(post);
+        
     }
     @Test
     void deletePostById(){
