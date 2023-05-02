@@ -1,14 +1,16 @@
 package de.rainbowdev.backend.model;
 
 
-public record Post(
+import org.springframework.data.annotation.Id;
 
-    String id,
-    String title,
-    String userName,
-    String postImg,
-    String description,
-    Boolean like
+public record Post(
+        @Id
+        String id,
+        String title,
+        String userName,
+        String postImg,
+        String description,
+        Boolean like
 ) {
 
 }

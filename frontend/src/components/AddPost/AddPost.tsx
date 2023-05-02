@@ -26,7 +26,7 @@ export default function AddPost(props: AddPostProps) {
 
     }
 
-const updatePost = (event: React.ChangeEvent<HTMLInputElement>) =>{
+const addPost = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const name = event.target.name;
         const value = event.target.value;
         setPost({...post, [name]: value})
@@ -38,10 +38,10 @@ const updatePost = (event: React.ChangeEvent<HTMLInputElement>) =>{
     return (
         <div className="add_post">
             <form className="add_input" onSubmit={onSavePost} >
-                <input className="addT_postTitle" type="text" name="title" value={post.title} onChange={(event) => updatePost(event)}/>
-                <input className="add_postUsername" type="text" name="userName" value={post.userName} onChange={(event) => updatePost(event)} />
-                <input className="add_postPostimg" type="text" name="postImg" value={post.postImg} onChange={(event) => updatePost(event)}/>
-                <input className="addInput" type="text" name="description" value={post.description} onChange={(event) => updatePost(event)} />
+                <input className="add_postTitle" type="text" name="title" value={post.title} onChange={(event) => addPost(event)}/>
+                <input className="add_postUsername" type="text" name="userName" value={post.userName} onChange={(event) => addPost(event)} />
+                <input className="add_postPostimg" type="text" name="postImg" value={post.postImg} onChange={(event) => addPost(event)}/>
+                <input className="add_postDescription" type="text" name="description" value={post.description} onChange={(event) => addPost(event)} />
 
                 <button className="addBtn" >Add</button>
             </form>

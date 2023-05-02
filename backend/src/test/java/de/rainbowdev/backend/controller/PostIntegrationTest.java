@@ -86,6 +86,41 @@ class PostIntegrationTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    void updatePostById_Successfully() throws Exception {
+        mockMvc.perform(put("/api/posts/123459").
+                        contentType(MediaType.APPLICATION_JSON).
+                        content("""
+                                {
+                                "id": "123459",
+                                "title": "Spring Rite",
+                                "userName": "Joy World",
+                                "postImg": " ",
+                                "description": "Spring break up and everything is grrowing!",
+                                "like": true                              
+                                 }
+                                       """)
+                )
+                    .andExpect(status().isOk());
+    }
+
+    @Test
+    void updatePostById_failed() throws Exception {
+        mockMvc.perform(put("/api/posts/zyredf").
+                        contentType(MediaType.APPLICATION_JSON).
+                        content("""
+                                {
+                               "id": "123459",
+                                "title": "Spring Rite",
+                                "userName": "Joy World",
+                                "postImg": " ",
+                                "description": "Spring break up and everything is grrowing!",
+                                "like": true
+                                 }
+                                       """)
+            )
+                    .andExpect(status().isBadRequest());
+    }
 
     @Test
     void expectSuccessfulDelete() throws Exception {
