@@ -33,7 +33,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    Post updateRecipe(@PathVariable String id, @RequestBody Post post) {
+    Post updatePost(@PathVariable String id, @RequestBody Post post) {
         if (!post.id().equals(id)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
         }
