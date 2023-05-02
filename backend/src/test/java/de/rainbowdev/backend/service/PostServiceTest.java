@@ -68,6 +68,17 @@ class PostServiceTest {
     }
 
     @Test
+    void updatePostById(){
+        //GIVEM
+        String id = "644d62573b7e0b0684c7e41e";
+        Post post = new Post("", "gloria", "gloria", "gloria", "gloria", true);
+
+        //WHEN
+        when(postRepository.findById(id)).thenReturn(Optional.of(post));
+        postService.updatePost(post);
+        //THEN
+    }
+    @Test
     void deletePostById(){
         //GIVEN
         String id ="644bb7feab61312259736934";

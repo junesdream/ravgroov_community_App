@@ -1,0 +1,40 @@
+.update_post{
+    display: flex;
+    flex-direction: column;
+}
+
+.update_input{
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    border: solid 3px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update_input input{
+    width: 70%;
+    padding: 20px;
+    margin: 15px;
+}
+
+.editBtn {
+    width: 250px;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: double 3px transparent;
+    background-image:     linear-gradient(
+            to right,
+            #E7484F,
+            #F68B1D,
+            #FCED00,
+            #009E4F,
+            #00AAC3,
+            #732982
+    );
+    animation:slidebg 2s linear infinite;
+}

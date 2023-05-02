@@ -3,7 +3,9 @@ package de.rainbowdev.backend.controller;
 import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -28,6 +30,14 @@ public class PostController {
     @PostMapping
     public Post addPost(@RequestBody Post post) {
         return postService.addPost(post);
+    }
+
+    @PutMapping("/{id}")
+    Post updateRecipe(@PathVariable String id, @RequestBody Post post) {
+        if (!post.id().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The id in the url does not match the request body's id");
+        }
+        return postService.updatePost(post);
     }
 
     @DeleteMapping("{id}")
