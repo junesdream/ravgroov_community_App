@@ -2,6 +2,7 @@ package de.rainbowdev.backend.service;
 
 import de.rainbowdev.backend.model.MongoUser;
 import de.rainbowdev.backend.repository.MongoUserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,13 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
+@RequiredArgsConstructor
 @Service
 public class MongoUserDetailsService implements UserDetailsService {
     private final MongoUserRepository mongoUserRepository;
-
-    public MongoUserDetailsService(MongoUserRepository mongoUserRepository) {
-        this.mongoUserRepository = mongoUserRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
