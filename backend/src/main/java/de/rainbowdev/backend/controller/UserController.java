@@ -1,8 +1,5 @@
 package de.rainbowdev.backend.controller;
 
-
-import de.rainbowdev.backend.model.MongoUser;
-import de.rainbowdev.backend.repository.MongoUserRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
