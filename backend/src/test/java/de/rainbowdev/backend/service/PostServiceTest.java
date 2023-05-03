@@ -78,7 +78,7 @@ class PostServiceTest {
         postService.updatePost(post);
         //THEN
          verify(postRepository).save(post);
-        
+
     }
     @Test
     void deletePostById(){
