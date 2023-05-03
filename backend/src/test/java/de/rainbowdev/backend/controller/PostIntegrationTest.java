@@ -144,21 +144,4 @@ class PostIntegrationTest {
                         []
                         """));
     }
-
-     @DirtiesContext
-    @Test
-    @WithMockUser(username = "rainbow")
-    void getUsernameWhenLoggedIn() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/users/me"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("rainbow"));
-    }
-
-    @DirtiesContext
-    @Test
-    void getAnonymousUserWhenNotLoggedIn() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/users/me"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("anonymousUser"));
-    }
 }
