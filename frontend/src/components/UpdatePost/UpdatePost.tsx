@@ -1,6 +1,6 @@
 import {Post} from "../../model/Post";
 import "./UpdatePost.css"
-import React, {ChangeEvent, FormEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 
@@ -15,6 +15,13 @@ export default function UpdatePost(props: UpdatePostProps) {
 
     const [post, setPost] = useState<Post>(initialState)
     const {id} = useParams<{ id: string }>()
+
+    useEffect(() => {
+        if (id) {
+            loadPostById(id)
+        }
+        //eslint-disable-next-line
+    }, [])
 
     function loadPostById(id: string) {
         axios.get('/api/posts/' + id)
