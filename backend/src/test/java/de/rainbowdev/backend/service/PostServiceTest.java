@@ -2,12 +2,18 @@ package de.rainbowdev.backend.service;
 
 import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.repository.PostRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.web.multipart.MultipartFile;
 
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -17,8 +23,10 @@ import static org.mockito.Mockito.*;
 class PostServiceTest {
 
     PostRepository postRepository = mock(PostRepository.class);
-    PostService postService = new PostService(postRepository);
+    CloudinaryService cloudinaryService = mock(CloudinaryService.class);
+    PostService postService = new PostService(postRepository, cloudinaryService);
 
+    UUID uuidService = mock(UUID.class);
     @Test
     void getAllPostsReturnEmptyList() {
         //GIVE
@@ -43,7 +51,8 @@ class PostServiceTest {
                 "Beatland",
                 "",
                 "This is how i feel",
-                true
+                true,
+                ""
         );
         when(postRepository.findById(id)).thenReturn(Optional.of(expected));
         // WHEN
@@ -54,24 +63,31 @@ class PostServiceTest {
     }
 
     @Test
-    void addPost() {
+    void addPost() throws IOException {
         //GIVEN
-        Post post = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!", true);
-        when(postRepository.save(post)).thenReturn(post);
+        Post postToSave = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
+        Post postToSaveWithId = new Post("12345", "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
+
+
+        when(cloudinaryService.uploadImage(any())).thenReturn("url");
+        when(postRepository.save(postToSaveWithId)).thenReturn(postToSaveWithId);
+        when(uuidService.randomUUID().toString()).thenReturn("12345");
+
+        MultipartFile file = null;
 
         //WHEN
-        Post actual = postService.addPost(post);
+        Post actual = postService.addPost(postToSave, file);
 
         //THEN
-        verify(postRepository).save(post);
-        assertEquals(post, actual);
+        Post expected = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
+        assertEquals(expected, actual);
     }
 
     @Test
     void updatePostById(){
-        //GIVEM
+        //GIVEN
         String id = "644d62573b7e0b0684c7e41e";
-        Post post = new Post("", "gloria", "gloria", "gloria", "gloria", true);
+        Post post = new Post("", "gloria", "gloria", "gloria", "gloria", true, "");
 
         //WHEN
         when(postRepository.findById(id)).thenReturn(Optional.of(post));
@@ -83,11 +99,27 @@ class PostServiceTest {
     @Test
     void deletePostById(){
         //GIVEN
-        String id ="644bb7feab61312259736934";
+        String id ="8da792d0-55d2-4cb7-9784-af12023a19bb";
 
         //WHEN
         postService.delete(id);
         //THEN
         verify(postRepository).deleteById(id);
+    }
+
+
+    @Test
+    void getAllCallsRepository() {
+        // given
+        Post testItem = new Post("", "", "", "", "", true, "");
+        Mockito.when(postRepository.findAll())
+                .thenReturn(Collections.singletonList(testItem));
+
+        // when
+        List<Post> actual = postService.getAllPosts();
+
+        // then
+        Assertions.assertThat(actual)
+                .containsExactly(testItem);
     }
 }

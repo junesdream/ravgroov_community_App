@@ -4,7 +4,8 @@ export type Post = {
     userName: string,
     postImg: string,
     description: string,
-    like: boolean
+    like: boolean,
+    url: string
 }
 
 export type NewPost = {
