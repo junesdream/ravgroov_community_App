@@ -6,10 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.image.ImagingOpException;
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -28,9 +26,6 @@ public class PostService {
     }
 
     public Post addPost(Post post, MultipartFile image) throws IOException {
-
-      // String id = UUID.randomUUID().toString();
-        //Post postToSave = post.withId();
 
         if (image != null){
             String url = cloudinaryService.uploadImage(image);
