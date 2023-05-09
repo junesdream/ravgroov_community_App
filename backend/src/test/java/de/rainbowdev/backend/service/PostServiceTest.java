@@ -26,7 +26,7 @@ class PostServiceTest {
     CloudinaryService cloudinaryService = mock(CloudinaryService.class);
     PostService postService = new PostService(postRepository, cloudinaryService);
 
-    UUID uuidService = mock(UUID.class);
+
     @Test
     void getAllPostsReturnEmptyList() {
         //GIVE
@@ -65,13 +65,12 @@ class PostServiceTest {
     @Test
     void addPost() throws IOException {
         //GIVEN
-        Post postToSave = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
+        Post postToSave = new Post("12345", "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
         Post postToSaveWithId = new Post("12345", "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
 
 
         when(cloudinaryService.uploadImage(any())).thenReturn("url");
         when(postRepository.save(postToSaveWithId)).thenReturn(postToSaveWithId);
-        when(uuidService.randomUUID().toString()).thenReturn("12345");
 
         MultipartFile file = null;
 
@@ -79,7 +78,7 @@ class PostServiceTest {
         Post actual = postService.addPost(postToSave, file);
 
         //THEN
-        Post expected = new Post(null, "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
+        Post expected = new Post("12345", "Spcae Disco", "A12345", "Kinda Beat", "Holidays are fine now!",  true, null);
         assertEquals(expected, actual);
     }
 

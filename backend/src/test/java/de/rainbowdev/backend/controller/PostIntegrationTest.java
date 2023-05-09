@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.rainbowdev.backend.model.Post;
 import de.rainbowdev.backend.repository.PostRepository;
 
-import net.bytebuddy.description.type.TypeDescription;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,7 +26,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.io.File;
 import java.util.Map;
@@ -68,55 +66,43 @@ class PostIntegrationTest {
     @Test
     @WithMockUser
     void getPostById() throws Exception {
-/*        mockMvc.perform(post("/api/posts")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
-                                {
-                                        "id": "3939",
-                                        "title": "Spcae Disco",
-                                        "userName": "Kinda Beat",
-                                        "postImg": " ",
-                                        "description": "Holidays are fine now!",
-                                        "like": true
-                                }
-                                """).with(csrf())
-                )
-                .andExpect(status().isOk());
-        mockMvc.perform(get("/api/posts/3939"))
-                .andExpect(status().isOk())
-                .andExpect(content().json("""
-                        {
-                                        "id": "3939",
-                                        "title": "Spcae Disco",
-                                        "userName": "Kinda Beat",
-                                        "postImg": " ",
-                                        "description": "Holidays are fine now!",
-                                        "like": true
-                        }
-                         """));*/
+        MockMultipartFile data = new MockMultipartFile("data", null, MediaType.APPLICATION_JSON_VALUE, """
+            {
+                "title": "spcae Disco",
+                "userName": "Kinda Beat",
+                "postImg": " ",
+                "description": "Holidays are fine now!",
+                "like": true
+            }
+            """.getBytes());
+
+        MockMultipartFile file = new MockMultipartFile("file",
+                "testBild.png",
+                MediaType.IMAGE_PNG_VALUE,
+                "testBild".getBytes());
+
+        File fileToUpload = File.createTempFile("image", null);
+        file.transferTo(fileToUpload);
+
+        when(cloudinary.uploader()).thenReturn(uploader);
+        when(uploader.upload(any(), any())).thenReturn(Map.of("url", "test-url"));
 
         String actual = mockMvc.perform(
-                        post("/api/posts")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content("""
-                                        {                                                                    "title": "Spcae Disco",
-                                                                                 "userName": "Kinda Beat",
-                                                                                 "postImg": " ",
-                                                                                 "description": "Holidays are fine now!",
-                                                                                 "like": true}
-                                        """)
+                        multipart("/api/posts")
+                                .file(data)
+                                .file(file)
                                 .with(csrf())
                 )
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
-                        {
-                           "title": "Spcae Disco",
-                                                                                 "userName": "Kinda Beat",
-                                                                                 "postImg": " ",
-                                                                                 "description": "Holidays are fine now!",
-                                                                                 "like": true
-                        }
-                        """))
+                    {
+                        "title": "spcae Disco",
+                        "userName": "Kinda Beat",
+                        "postImg": " ",
+                        "description": "Holidays are fine now!",
+                        "like": true
+                    }
+                    """))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
@@ -127,48 +113,34 @@ class PostIntegrationTest {
         mockMvc.perform(get("/api/posts/" + id))
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
-                        {
-                        "id": "<ID>"
-                          "title": "Spcae Disco",
-                                                                                 "userName": "Kinda Beat",
-                                                                                 "postImg": " ",
-                                                                                 "description": "Holidays are fine now!",
-                                                                                 "like": true"
-                        }
-                        """.replaceFirst("<ID>", id)));
+                    {
+                        "id": "<ID>",
+                        "title": "spcae Disco",
+                        "userName": "Kinda Beat",
+                        "postImg": " ",
+                        "description": "Holidays are fine now!",
+                        "like": true
+                    }
+                    """.replace("<ID>", id)));
+
+        mockMvc.perform(get("/api/posts"))
+                .andExpect(status().isOk());
     }
 
     @Test
     @WithMockUser
     void addPost() throws Exception {
-
-     /*   mockMvc.perform(post("/api/posts")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
-                                {
-                                        "id": "222",
-                                        "title": "Spcae Disco",
-                                        "userName": "Kinda Beat",
-                                        "postImg": " ",
-                                        "description": "Holidays are fine now!",
-                                        "like": true
-                                }
-                                """)
-                        .with(csrf())
-                )
-                .andExpect(status().isOk());*/
-
         MockMultipartFile data = new MockMultipartFile("data",
                 null,
                 MediaType.APPLICATION_JSON_VALUE,
                 """
                                 {
                                 "title": "Spcae Disco",
-                                 "userName": "Kinda Beat",
-                                  "postImg": " ",
-                                   "description": "Holidays are fine now!",
-                                    "like": true,                     
-                                }
+                                "userName": "Kinda Beat",
+                                 "postImg": " ",
+                                 "description": "Holidays are fine now!",
+                                 "like": true
+                                    }
                         """.getBytes());
 
         MockMultipartFile file = new MockMultipartFile("file",
@@ -220,8 +192,8 @@ class PostIntegrationTest {
                                 "userName": "Joy World",
                                 "postImg": " ",
                                 "description": "Spring break up and everything is grrowing!",
-                                "like": true                              
-                                 }
+                                "like": true
+                                }
                                        """).with(csrf())
                 )
                 .andExpect(status().isOk());
@@ -250,7 +222,7 @@ class PostIntegrationTest {
     @WithMockUser
     void expectSuccessfulDelete() throws Exception {
         mockMvc.perform(delete("/api/posts/3939")
-                .with(csrf()))
+                        .with(csrf()))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/api/posts"))
                 .andExpect(status().isOk())

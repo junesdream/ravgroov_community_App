@@ -29,14 +29,14 @@ public class PostService {
 
     public Post addPost(Post post, MultipartFile image) throws IOException {
 
-        String id = UUID.randomUUID().toString();
-        Post postToSave = post.withId(id);
+      // String id = UUID.randomUUID().toString();
+        //Post postToSave = post.withId();
 
         if (image != null){
             String url = cloudinaryService.uploadImage(image);
-            postToSave = postToSave.withUrl(url);
+            post = post.withUrl(url);
         }
-        return postRepository.save(postToSave);
+        return postRepository.save(post);
 
     }
 
