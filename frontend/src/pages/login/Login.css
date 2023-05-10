@@ -1,0 +1,153 @@
+.login {
+    height: 100vh;
+    background: url("https://images.pexels.com/photos/3889704/pexels-photo-3889704.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 50%;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+    overflow: hidden;
+    border: double 4px transparent;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #f00,#3020ff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    -webkit-animation: rainbow 5s infinite alternate;
+}
+
+@-webkit-keyframes rainbow {
+    0% {border-color: hsl(0, 100%, 50%);}
+    100% {border-color: hsl(255, 100%, 50%);}
+}
+
+.left {
+    flex: 1;
+    background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+    url("https://images.pexels.com/photos/4722090/pexels-photo-4722090.jpeg?auto=compress&cs=tinysrgb&w=1200") center;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 30px;
+    color: white;
+}
+
+.left h1 {
+    font-size: 90px;
+    line-height: 100px;
+}
+
+.left p {
+    text-align: justify;
+}
+
+.left span {
+    font-size: 14px;
+}
+
+.left button {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    color: springgreen;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+    animation:slidebg 2s linear infinite;
+}
+
+.follow{
+    margin-top: 40px;
+}
+
+.follow a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.right {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    background-color: #b3cdd1;
+    background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+}
+
+.right h1 {
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #000000;
+    animation: rainbow 5s infinite;
+}
+
+@keyframes rainbow{
+    0%{color: orange;}
+    10%{color: purple;}
+    20%{color: red;}
+    30%{color: CadetBlue;}
+    40%{color: yellow;}
+    50%{color: coral;}
+    60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+    100%{color: orange;}
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.right input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    padding: 20px 10px;
+}
+
+.right button {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #938eef;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    background-image:     linear-gradient(
+            to right,
+            #E7484F,
+            #E7484F 16.65%,
+            #F68B1D 16.65%,
+            #F68B1D 33.3%,
+            #FCED00 33.3%,
+            #FCED00 49.95%,
+            #009E4F 49.95%,
+            #009E4F 66.6%,
+            #00AAC3 66.6%,
+            #00AAC3 83.25%,
+            #732982 83.25%,
+            #732982 100%,
+            #E7484F 100%
+    );
+    animation:slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+    to {
+        background-position:20vw;
+    }
+}

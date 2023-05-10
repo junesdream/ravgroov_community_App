@@ -14,6 +14,7 @@ public record RavgroovUser(
         List<String> friends,
         Timestamp joiningDate
 
+
 ) {
 
 }

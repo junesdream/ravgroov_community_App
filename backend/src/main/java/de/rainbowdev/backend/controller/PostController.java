@@ -5,8 +5,10 @@ import de.rainbowdev.backend.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,8 +30,8 @@ public class PostController {
     }
 
     @PostMapping
-    public Post addPost(@RequestBody Post post) {
-        return postService.addPost(post);
+    public Post addPost(@RequestPart("data") Post post, @RequestPart(name = "file", required = false) MultipartFile image) throws IOException {
+        return postService.addPost(post, image);
     }
 
     @PutMapping("/{id}")

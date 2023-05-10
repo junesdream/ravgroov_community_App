@@ -10,7 +10,14 @@ public record Post(
         String userName,
         String postImg,
         String description,
-        Boolean like
+        Boolean like,
+        String url
 ) {
+        public Post withId(String id) {
+                return new Post (id, title, userName, postImg, description, like, url);
+        }
 
+        public Post withUrl(String url) {
+                return new Post(id, title, userName, postImg, description, like, url);
+        }
 }

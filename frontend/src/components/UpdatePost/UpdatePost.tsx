@@ -11,7 +11,7 @@ type UpdatePostProps = {
 
 export default function UpdatePost(props: UpdatePostProps) {
 
-    const initialState: Post = {id: "", title: "Spring Rite", userName: "oy World", postImg: "", description: "Spring break up and everything is grrowing!", like: true}
+    const initialState: Post = {id: "", title: "Spring Rite", userName: "oy World", postImg: "", description: "Spring break up and everything is grrowing!", like: true, url: ""}
 
     const [post, setPost] = useState<Post>(initialState)
     const {id} = useParams<{ id: string }>()

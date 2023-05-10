@@ -23,7 +23,7 @@ export default function PostCard(props: Props) {
             <p>{props.post.postImg} </p>
             <p>{props.post.description} </p>
             <p>{props.post.like} </p>
-
+            <img src={props.post.url} alt="Post image" width={200} />
             <div className="post_card-btn">
                 <button onClick={() => {
                     navigate('/posts/' + props.post.id)
