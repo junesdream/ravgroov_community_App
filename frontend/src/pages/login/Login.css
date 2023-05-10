@@ -92,7 +92,7 @@
     animation: rainbow 5s infinite;
 }
 
-/*@keyframes rainbow{
+@keyframes rainbow{
     0%{color: orange;}
     10%{color: purple;}
     20%{color: red;}
@@ -104,7 +104,7 @@
     80%{color: DeepPink;}
     90%{color: DodgerBlue;}
     100%{color: orange;}
-}*/
+}
 
 .right form {
     display: flex;
@@ -144,11 +144,10 @@
             #E7484F 100%
     );
     animation:slidebg 2s linear infinite;
-    animation:slidebg 2s linear infinite;
 }
 
-/*@keyframes slidebg {
+@keyframes slidebg {
     to {
         background-position:20vw;
     }
-}*/
+}

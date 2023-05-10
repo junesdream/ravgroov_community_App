@@ -1,9 +1,6 @@
 import "./Register.css";
 import {Link} from "react-router-dom";
 
-/*type Props = {
-    onRegister: (username: string, email: string, password: string, name: string) => Promise<void>
-}*/
 export default function Register() {
     return (
         <div className="register">
@@ -32,5 +29,5 @@ export default function Register() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
