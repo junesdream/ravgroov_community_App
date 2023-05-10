@@ -13,23 +13,24 @@ export default function Login(props: Props) {
 
     const navigate = useNavigate()
 
-    function onSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
+    async function onSubmit(event: FormEvent<HTMLFormElement>) {
+       /* event.preventDefault()
 
         props.onLogin(username, password)
             .then(() => {
                 navigate("/posts")
-            })
+            })*/
+
+        event.preventDefault();
+        try {
+            await props.onLogin(username, password);
+            navigate("/posts");
+        } catch (error) {
+            console.error(error);
+        }
 
     }
     return (
-       /* <form className="login_form" onSubmit={onSubmit}>
-
-            <input value={username} placeholder="username" type="text" onChange={e => setUsername(e.target.value)}/>
-            <input value={password} placeholder="password" type="password" onChange={e => setPassword(e.target.value)}/>
-            <button className="loginBtn" type="submit">Login</button>
-
-        </form>*/
 
         <div className="login">
             <div className="card">
