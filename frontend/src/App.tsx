@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
 import {Post, NewPost} from "./model/Post";
@@ -11,31 +11,54 @@ import Login from "./pages/login/Login";
 import useUser from "./useUser";
 import usePosts from "./usePosts";
 import Register from "./pages/register/Register";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 function App() {
-    const {user, login } = useUser();
-    const {posts, addPost, updatePost, deletePost} = usePosts();
+    const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
+    const memoizedLoadAllPosts = useCallback(loadAllPosts, [loadAllPosts]);
+    const {user, login, logout, isLoading} = useUser();
+
+    useEffect(() => {
+        if (user) {
+            loadAllPosts();
+        }
+    }, [user, loadAllPosts]);
 
     return (
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/"/>
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login onLogin={login}/>}/>
+                    {/*<Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>*/}
+                    <Route
+                        path="/"
+                        element={
+                            <Layout/>
+                        }
+                    >
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/profile/:id" element={<Profile/>}/>
+                    </ Route>
 
                     <Route path="/posts/:id" element={<PostDetail/>}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+                    {/*</Route>*/}
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>
+
             </BrowserRouter>
         </div>
-    );
+    )
 
 }
 
 export default App;
+

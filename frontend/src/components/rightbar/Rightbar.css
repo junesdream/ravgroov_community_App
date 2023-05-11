@@ -1,0 +1,110 @@
+@import '../layout/Layout.css';
+
+.rightBar{
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    background-color: var(--bg-soft);
+}
+
+.rightBar::-webkit-scrollbar{
+    display: none;
+}
+
+.right_container {
+    padding: 20px;
+}
+
+.right_item {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--bg);
+}
+
+.right_item span{
+    colar:grey;
+}
+
+.right_user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.right_userInfo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.right_userInfo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.right_online {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: limegreen;
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
+
+.rightBar p {
+    color: var(--text-color-soft);
+}
+
+.right_online span{
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.right_buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right_buttons button{
+    border: none;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.right_buttons button:first-child {
+    background-image:     linear-gradient(
+            to right,
+            #E7484F,
+            #E7484F 16.65%,
+            #F68B1D 16.65%,
+            #F68B1D 33.3%,
+            #FCED00 33.3%,
+            #FCED00 49.95%,
+            #009E4F 49.95%,
+            #009E4F 66.6%,
+            #00AAC3 66.6%,
+            #00AAC3 83.25%,
+            #732982 83.25%,
+            #732982 100%,
+            #E7484F 100%
+    );
+    animation:slidebg 2s linear infinite;
+}
+
+.right_buttons button:last-child {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    animation:slidebg 2s linear infinite;
+}
+

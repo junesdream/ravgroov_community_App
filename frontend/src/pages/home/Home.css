@@ -1,0 +1,6 @@
+@import '../../components/layout/Layout.css';
+
+.home {
+    padding: 20px 70px;
+    background-color: var(--bg-soft);
+}

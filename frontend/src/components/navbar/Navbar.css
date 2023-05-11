@@ -1,0 +1,75 @@
+@import '../layout/Layout.css';
+
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid var(--border);
+    -webkit-animation: rainbow 5s infinite alternate;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg);
+    color: var(--text-color);
+}
+
+.nav_left{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav_left span{
+    font-weight: bold;
+    font-size: 20px;
+    background-image: -webkit-linear-gradient(left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+    -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+    background-clip: text;
+}
+@keyframes animatedBackground_a {
+    0% { background-position: 0 0 }
+    100% { background-position: -500px 0 }
+}
+
+.nav_search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nav_search input {
+    border: none;
+    width: 500px;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.nav_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.nav_right img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav_right span {
+
+}
