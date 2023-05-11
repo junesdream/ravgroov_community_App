@@ -37,7 +37,7 @@ export default function Navbar(){
                 <EmailOutlinedIcon />
                 <NotificationsOutlinedIcon />
                 <div className="nav_user">
-                    <img src= "https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200"/>
+                    <img src= "https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200" alt=" "/>
                 <span>Dora Park</span>
                 </div>
             </div>

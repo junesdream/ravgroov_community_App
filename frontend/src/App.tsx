@@ -1,7 +1,5 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import './App.css';
-import axios from "axios";
-import {Post, NewPost} from "./model/Post";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PostGallery from "./components/PostGallery/PostGallery";
 import AddPost from "./components/AddPost/AddPost";

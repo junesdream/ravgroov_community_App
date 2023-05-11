@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 import {NewPost, Post} from "./model/Post";
 import axios from "axios";
 import {toast} from "react-toastify";

@@ -1,4 +1,4 @@
-import React, {Component, useContext} from "react";
+import React, {useContext} from "react";
 import {Outlet} from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import LeftBar from "../leftbar/LeftBar";
