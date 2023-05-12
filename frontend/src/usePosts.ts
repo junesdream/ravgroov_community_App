@@ -78,5 +78,5 @@ export default function usePosts() {
             })
     }
 
-    return {posts, allPosts, addPost, updatePost, deletePost, loadAllPosts}
+    return {posts, addPost, updatePost, deletePost, loadAllPosts}
 }
