@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
+import React from "react";
 import './Stories.css'
-import {AuthContext} from "../../context/authContext";
+
 
 export default function Stories() {
 

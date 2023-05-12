@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PostGallery from "./components/PostGallery/PostGallery";
@@ -18,7 +18,7 @@ import ProtectedRoutes from "./ProtectedRoutes";
 function App() {
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
-    const {user, login, logout, isLoading} = useUser();
+    const {user, login} = useUser();
 
     useEffect(() => {
         if (user) {
