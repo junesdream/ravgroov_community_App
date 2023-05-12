@@ -21,13 +21,15 @@ export default function Login(props: Props) {
 
     const navigate = useNavigate()
 
-    function onSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
+    async function onSubmit(event: FormEvent<HTMLFormElement>) {
 
-        props.onLogin(username, password)
-            .then(() => {
-                navigate("/posts")
-            })
+        event.preventDefault();
+        try {
+            await props.onLogin(username, password);
+            navigate("/posts");
+        } catch (error) {
+            console.error(error);
+        }
 
     }
 

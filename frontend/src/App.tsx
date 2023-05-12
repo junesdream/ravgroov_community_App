@@ -22,6 +22,8 @@ function App() {
     const memoizedLoadAllPosts = useCallback(loadAllPosts, [loadAllPosts]);
 
     const {user, login, logout, isLoading} = useUser();
+    const { login } = useUser();
+    const {posts, addPost, updatePost, deletePost} = usePosts();
 
 
     useEffect(() => {
