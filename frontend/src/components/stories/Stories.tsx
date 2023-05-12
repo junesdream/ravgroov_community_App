@@ -4,13 +4,13 @@ import {AuthContext} from "../../context/authContext";
 
 export default function Stories() {
 
-    //const {currentUser} = useContext(AuthContext)
+    const {currentUser} = useContext(AuthContext)
 
 
     const stories = [
         {
             id: 1,
-            name: "Dora Park",
+            name: "Ulla Schmickenuel",
             img: "https://images.pexels.com/photos/13273107/pexels-photo-13273107.jpeg?auto=compress&cs=tinysrgb&w=1200",
         },
         {
@@ -34,8 +34,8 @@ export default function Stories() {
     return (
         <div className="stories">
             <div className="story">
-                <img src="https://images.pexels.com/photos/13916254/pexels-photo-13916254.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
-                <span>Laura Akiko</span>
+                <img src={currentUser.profilePic} alt="" />
+                <span>{currentUser.name}</span>
                 <button>+</button>
             </div>
             {stories.map(story=>(
