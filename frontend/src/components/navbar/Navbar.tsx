@@ -12,36 +12,39 @@ import {Link} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
 import {AuthContext} from "../../context/authContext";
 
-export default function Navbar(){
+export default function Navbar() {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
-    //const { currentUser } = useContext(AuthContext);
+    const {currentUser} = useContext(AuthContext);
 
 
     return (
         <div className="navBar">
             <div className="nav_left">
-                <Link to="/" style={{textDecoration:"none"}}>
-                <span> RavGroov </span>
+                <Link to="/" style={{textDecoration: "none"}}>
+                    <span> RavGroov </span>
                 </Link>
-                <HomeOutlinedIcon />
-                {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle} />}
-                <GridViewOutlinedIcon />
+                <HomeOutlinedIcon/>
+                {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle}/>}
+                <GridViewOutlinedIcon/>
                 <div className="nav_search">
-                    <SearchOutlinedIcon />
+                    <SearchOutlinedIcon/>
                     <input type="text" placeholder="Search..."/>
                 </div>
             </div>
             <div className="nav_right">
-                <PersonOutlinedIcon />
-                <EmailOutlinedIcon />
-                <NotificationsOutlinedIcon />
-                <div className="nav_user">
-                    <img src= "https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200" alt=" "/>
-                <span>Dora Park</span>
-                </div>
+                <PersonOutlinedIcon/>
+                <EmailOutlinedIcon/>
+                <NotificationsOutlinedIcon/>
+                {currentUser ?
+                    <>
+                        <img
+                            src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt=" "/>
+                        <span>{currentUser.name}</span> </> :
+                    <> </>
+                }
             </div>
-
         </div>
     )
 

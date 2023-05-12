@@ -4,6 +4,7 @@ export type Post = {
     userName: string,
     postImg: string,
     description: string,
+    profilePic: string
     like: boolean,
     url: string
 }

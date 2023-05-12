@@ -18,7 +18,6 @@ import ProtectedRoutes from "./ProtectedRoutes";
 function App() {
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
-    const memoizedLoadAllPosts = useCallback(loadAllPosts, [loadAllPosts]);
     const {user, login, logout, isLoading} = useUser();
 
     useEffect(() => {
@@ -42,7 +41,7 @@ function App() {
                         <Route path="/profile/:id" element={<Profile/>}/>
                     </ Route>
 
-                    <Route path="/posts/:id" element={<PostDetail/>}/>
+                    <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>

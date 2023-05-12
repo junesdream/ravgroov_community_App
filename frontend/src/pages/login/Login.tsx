@@ -1,6 +1,7 @@
-import {FormEvent, useState} from "react";
+import {FormEvent, useContext, useState} from "react";
 import "./Login.css"
 import {useNavigate, Link} from "react-router-dom";
+import {AuthContext} from "../../context/authContext";
 
 
 
@@ -12,20 +13,23 @@ export default function Login(props: Props) {
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
-   /* const {login} = useContext(AuthContext);
+    const {login} = useContext(AuthContext);
+
     const handleLogin = () => {
         login();
-    }*/;
+    }
 
     const navigate = useNavigate()
 
-    function onSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
+    async function onSubmit(event: FormEvent<HTMLFormElement>) {
 
-        props.onLogin(username, password)
-            .then(() => {
-                navigate("/posts")
-            })
+        event.preventDefault();
+        try {
+            await props.onLogin(username, password);
+            navigate("/posts");
+        } catch (error) {
+            console.error(error);
+        }
 
     }
 
@@ -42,8 +46,8 @@ export default function Login(props: Props) {
                     </p>
                     <span>Don't you have an account?</span>
                     <Link to="/register">
-                    <button>Register</button>
-                </Link>
+                        <button>Register</button>
+                    </Link>
 
                 </div>
                 <div className="log_right">
@@ -51,12 +55,11 @@ export default function Login(props: Props) {
                     <form onSubmit={onSubmit}>
                         <input value={username} placeholder="username" type="text" onChange={e => setUsername(e.target.value)}/>
                         <input value={password} placeholder="password" type="password" onChange={e => setPassword(e.target.value)} />
-                        <button type="submit" >Login </button>
+                        <button type="submit" onClick={handleLogin} >Login </button>
                     </form>
                 </div>
             </div>
         </div>
 
     )
-
 }

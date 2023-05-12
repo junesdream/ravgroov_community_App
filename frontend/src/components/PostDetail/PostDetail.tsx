@@ -4,8 +4,12 @@ import {Post} from "../../model/Post";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 
+type Props = {
 
-export default function PostDetail() {
+    deletePost: (id: string) => void
+}
+
+export default function PostDetail(props: Props) {
 
     const [post, setPost] = useState<Post>();
     const {id} = useParams<{ id: string }>()
@@ -27,6 +31,13 @@ export default function PostDetail() {
             })
     }
 
+    function onDeleteClick() {
+
+        if(post) {
+            props.deletePost(post.id)
+        }
+    }
+
     return (
         <div className="post_detail">
             {
@@ -41,6 +52,7 @@ export default function PostDetail() {
                     </div>
                     : <div>Loading...</div>
             }
+            <button onClick={onDeleteClick}>Delete</button>
         </div>
     )
 }

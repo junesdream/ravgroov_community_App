@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {NewPost, Post} from "./model/Post";
 import axios from "axios";
 import {toast} from "react-toastify";
@@ -8,7 +8,7 @@ export default function usePosts() {
 
     const [posts, setPosts] = useState<Post[]>([])
 
- /*   useEffect(() => {
+  useEffect(() => {
         allPosts()
     }, []);
 
@@ -20,7 +20,7 @@ export default function usePosts() {
             .catch((error) => {
                 console.error(error)
             })
-    }*/
+    }
 
     const loadAllPosts = useCallback(() => {
         axios
@@ -78,5 +78,5 @@ export default function usePosts() {
             })
     }
 
-    return {posts, addPost, updatePost, deletePost, loadAllPosts}
+    return {posts, allPosts, addPost, updatePost, deletePost, loadAllPosts}
 }
