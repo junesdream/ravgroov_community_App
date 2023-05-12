@@ -1,13 +1,14 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {NewPost, Post} from "./model/Post";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 
 export default function usePosts() {
 
     const [posts, setPosts] = useState<Post[]>([])
 
-    useEffect(() => {
+ useEffect(() => {
         allPosts()
     }, []);
 
@@ -20,6 +21,19 @@ export default function usePosts() {
                 console.error(error)
             })
     }
+
+    const loadAllPosts = useCallback(() => {
+        axios
+            .get("/api/posts")
+            .then((response) => {
+                setPosts(response.data);
+                toast.success("Posts loaded!");
+            })
+            .catch((error) => {
+                console.error(error);
+                toast.error("Failed to load posts.");
+            });
+    }, []);
 
     function addPost(postToAdd: NewPost, image: File | undefined) {
 
@@ -64,5 +78,5 @@ export default function usePosts() {
             })
     }
 
-    return {posts, addPost, updatePost, deletePost}
+    return {posts, addPost, updatePost, deletePost, loadAllPosts}
 }

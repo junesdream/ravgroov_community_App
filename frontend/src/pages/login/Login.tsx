@@ -1,6 +1,8 @@
-import {FormEvent, useState} from "react";
+import {FormEvent, useContext, useState} from "react";
 import "./Login.css"
 import {useNavigate, Link} from "react-router-dom";
+import {AuthContext} from "../../context/authContext";
+
 
 
 type Props = {
@@ -11,15 +13,15 @@ export default function Login(props: Props) {
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
+   const {login} = useContext(AuthContext);
+
+    const handleLogin = () => {
+        login();
+    }
+
     const navigate = useNavigate()
 
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
-       /* event.preventDefault()
-
-        props.onLogin(username, password)
-            .then(() => {
-                navigate("/posts")
-            })*/
 
         event.preventDefault();
         try {
@@ -30,11 +32,12 @@ export default function Login(props: Props) {
         }
 
     }
+
     return (
 
         <div className="login">
-            <div className="card">
-                <div className="left">
+            <div className="log_card">
+                <div className="log_left">
                     <h1>Hi, Happy Ravers!</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
@@ -47,17 +50,16 @@ export default function Login(props: Props) {
                 </Link>
 
                 </div>
-                <div className="right">
+                <div className="log_right">
                     <h1>Login</h1>
                     <form onSubmit={onSubmit}>
                         <input value={username} placeholder="username" type="text" onChange={e => setUsername(e.target.value)}/>
                         <input value={password} placeholder="password" type="password" onChange={e => setPassword(e.target.value)} />
-                        <button type="submit">Login </button>
+                        <button type="submit" onClick={handleLogin} >Login </button>
                     </form>
                 </div>
             </div>
         </div>
 
     )
-
 }

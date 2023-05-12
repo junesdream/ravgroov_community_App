@@ -1,0 +1,66 @@
+@import '../layout/Layout.css';
+
+.leftBar {
+    flex: 2;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    background-color: var(--bg);
+    color: var(--text-color);
+}
+
+.leftBar::-webkit-scrollbar{
+ display: none;
+ }
+
+.left_container{
+    padding: 20px;
+}
+
+.leftBar hr{
+    margin: 20px 0px;
+    border: none;
+    height: 1.5px;
+    background-image: -webkit-linear-gradient(left, rgba(255,2,5,.5), rgba(137,11,138,.5), rgba(27,123,187,.5), rgba(47,195,44,.5), rgba(253,201,1,.5), rgba(255,91,2,.5), #ccc 45%, #ccc 55%, rgba(255,91,2,.5), rgba(253,201,1,.5), rgba(47,195,44,.5), rgba(27,123,187,.5), rgba(137,11,138,.5), rgba(255,2,5,.5));
+}
+
+.left_menu{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.left_menu span{
+    font-size: 12px;
+}
+.left_user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.left_user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.left_user span{
+    font-size: 14px;
+}
+
+.left_item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.left_item img{
+    width: 30px;
+}
+
+.left_item span{
+    font-size: 14px;
+}
+

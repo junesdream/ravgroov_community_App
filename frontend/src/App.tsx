@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PostGallery from "./components/PostGallery/PostGallery";
@@ -10,33 +10,58 @@ import useUser from "./useUser";
 import usePosts from "./usePosts";
 import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
+
 
 
 function App() {
-    const { login } = useUser();
-    const {posts, addPost, updatePost, deletePost} = usePosts();
 
+    const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
+
+
+    const {user, login} = useUser();
+
+
+    useEffect(() => {
+        if (user) {
+            loadAllPosts();
+        }
+    }, [user, loadAllPosts]);
 
     return (
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/"/>
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login onLogin={login}/>}/>
 
-                    <Route path='/' element={<Layout />}/>
+                    {/*<Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>*/}
 
-                    <Route path="/posts/:id" element={<PostDetail/>}/>
+                    <Route
+                        path="/"
+                        element={
+                            <Layout/>
+                        }
+                    >
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/profile/:id" element={<Profile/>}/>
+                    </ Route>
+
+                   <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+
+                    {/*</Route>*/}
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>
+
             </BrowserRouter>
         </div>
-    );
+    )
 
 }
 
 export default App;
+
