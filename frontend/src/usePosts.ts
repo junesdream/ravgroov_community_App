@@ -8,7 +8,7 @@ export default function usePosts() {
 
     const [posts, setPosts] = useState<Post[]>([])
 
- useEffect(() => {
+  useEffect(() => {
         allPosts()
     }, []);
 
@@ -78,5 +78,5 @@ export default function usePosts() {
             })
     }
 
-    return {posts, addPost, updatePost, deletePost, loadAllPosts}
+    return {posts, allPosts, addPost, updatePost, deletePost, loadAllPosts}
 }

@@ -22,7 +22,6 @@ export default function PostCard(props: Props) {
         props.deletePost(props.post.id)
     }
 
-
     const [commentOpen, setCommentOpen] = useState(false);
 
     const liked = false;
@@ -32,7 +31,8 @@ export default function PostCard(props: Props) {
             <div className="post_container">
                 <div className="post_user">
                     <div className="post_userInfo">
-                        <img src={props.post.profilePic} alt="" />
+                        {/*<img src={props.post.profilePic} alt="" />*/}
+                        <img src=" https://images.pexels.com/photos/458381/pexels-photo-458381.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" />
                         <div className="post_details">
                             <Link
                                 to={`/profile/${props.post.id}`}
@@ -70,28 +70,8 @@ export default function PostCard(props: Props) {
                         <button onClick={onDeleteClick}>Delete</button>
                     </div>
                 </div>
-              {commentOpen && <Comments />}
-            </div>
-        </div>
-
-
-    )
-}
-
-
-/* <div className='post_card'>
-            <h1> Post </h1>
-            <p>{props.post.title} </p>
-            <p>{props.post.userName} </p>
-            <p>{props.post.postImg} </p>
-            <p>{props.post.description} </p>
-            <p>{props.post.like} </p>
-            <img src={props.post.url} alt="Post image" width={200} />
-            <div className="post_card-btn">
-                <button onClick={() => {
-                    navigate('/posts/' + props.post.id)
-                }}>Detail
-                </button>
-                <button onClick={onDeleteClick}>Delete</button>
+               {commentOpen && <Comments />}
             </div>
         </div>*/
+
+

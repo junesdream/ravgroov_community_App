@@ -1,21 +1,6 @@
 /*
 .post_gallery{
     display: flex;
-    gap: 12px;
-    border: none;
-    margin: 12px;
-    justify-content: space-around;
-    background-color: aqua;
-}
-
-
-.post_gallery-column{
-    padding: 30px;
-    border: 2px solid red;
-}
-*/
-.post_gallery{
-    display: flex;
     flex-direction: column;
     gap: 50px;
 }

@@ -9,8 +9,7 @@ type Props = {
     deletePost: (id: string) => void
 }
 
-
-export default function PostDetail(props:Props) {
+export default function PostDetail(props: Props) {
 
     const [post, setPost] = useState<Post>();
     const {id} = useParams<{ id: string }>()
@@ -38,7 +37,6 @@ export default function PostDetail(props:Props) {
             props.deletePost(post.id)
         }
     }
-
 
     return (
         <div className="post_detail">
