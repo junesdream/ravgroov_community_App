@@ -32,34 +32,36 @@ export default function PostCard(props: Props) {
                 <div className="post_user">
                     <div className="post_userInfo">
                         {/*<img src={props.post.profilePic} alt="" />*/}
-                        <img src=" https://images.pexels.com/photos/458381/pexels-photo-458381.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" />
+                        <img
+                            src=" https://images.pexels.com/photos/458381/pexels-photo-458381.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                            alt=""/>
                         <div className="post_details">
                             <Link
                                 to={`/profile/${props.post.id}`}
-                                style={{ textDecoration: "none", color: "inherit" }}
+                                style={{textDecoration: "none", color: "inherit"}}
                             >
                                 <span className="post_name">{props.post.title}</span>
                             </Link>
                             <span className="post_date">1 min ago</span>
                         </div>
                     </div>
-                    <MoreHorizIcon />
+                    <MoreHorizIcon/>
                 </div>
                 <div className="post_content">
                     <p>{props.post.description}</p>
-                    <img src={props.post.url} alt="" />
+                    <img src={props.post.url} alt=""/>
                 </div>
                 <div className="post_info">
                     <div className="post_item">
-                        {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
+                        {liked ? <FavoriteOutlinedIcon/> : <FavoriteBorderOutlinedIcon/>}
                         12 Likes
                     </div>
                     <div className="post_item" onClick={() => setCommentOpen(!commentOpen)}>
-                        <TextsmsOutlinedIcon />
+                        <TextsmsOutlinedIcon/>
                         12 Comments
                     </div>
                     <div className="post_item">
-                        <ShareOutlinedIcon />
+                        <ShareOutlinedIcon/>
                         Share
                     </div>
                     <div className="post_card-btn">
@@ -70,8 +72,9 @@ export default function PostCard(props: Props) {
                         <button onClick={onDeleteClick}>Delete</button>
                     </div>
                 </div>
-               {commentOpen && <Comments />}
+                {commentOpen && <Comments/>}
             </div>
-        </div>*/
-
+        </div>
+    )
+}
 

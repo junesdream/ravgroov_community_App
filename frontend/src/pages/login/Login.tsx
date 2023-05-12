@@ -25,7 +25,7 @@ export default function Login(props: Props) {
         event.preventDefault();
         try {
             await props.onLogin(username, password);
-            navigate("/posts");
+            navigate("/");
         } catch (error) {
             console.error(error);
         }
