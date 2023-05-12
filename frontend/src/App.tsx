@@ -12,10 +12,11 @@ import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import ProtectedRoutes from "./ProtectedRoutes";
+
 
 
 function App() {
+
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
     const {user, login} = useUser();
@@ -30,7 +31,9 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
+
                     {/*<Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>*/}
+
                     <Route
                         path="/"
                         element={
@@ -41,11 +44,12 @@ function App() {
                         <Route path="/profile/:id" element={<Profile/>}/>
                     </ Route>
 
-                    <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
+                   <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+
                     {/*</Route>*/}
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>

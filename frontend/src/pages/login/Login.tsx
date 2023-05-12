@@ -14,7 +14,6 @@ export default function Login(props: Props) {
     const [password, setPassword] = useState<string>("")
 
     const {login} = useContext(AuthContext);
-
     const handleLogin = () => {
         login();
     }

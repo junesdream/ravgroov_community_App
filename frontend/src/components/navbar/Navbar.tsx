@@ -33,17 +33,17 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="nav_right">
-                <PersonOutlinedIcon/>
-                <EmailOutlinedIcon/>
-                <NotificationsOutlinedIcon/>
-                {currentUser ?
+                <PersonOutlinedIcon />
+                <EmailOutlinedIcon />
+                <NotificationsOutlinedIcon />
+
+                {currentUser && (
                     <>
-                        <img
-                            src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                            alt=" "/>
-                        <span>{currentUser.name}</span> </> :
-                    <> </>
-                }
+                        <img src={currentUser.profilePic} alt=" " />
+                        <span>{currentUser.name}</span>
+                    </>
+                )}
+
             </div>
         </div>
     )

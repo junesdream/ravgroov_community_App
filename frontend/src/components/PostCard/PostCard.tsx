@@ -72,8 +72,6 @@ export default function PostCard(props: Props) {
                 </div>
                {commentOpen && <Comments />}
             </div>
-        </div>
+        </div>*/
 
 
-    )
-}

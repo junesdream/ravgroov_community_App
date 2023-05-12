@@ -48,6 +48,7 @@ export default function PostDetail(props: Props) {
                         <p>{post.userName}</p>
                         <p>{post.postImg}</p>
                         <p>{post.description}</p>
+                        <p>{post.url}</p>
                         <p>{post.like}</p>
                     </div>
                     : <div>Loading...</div>

@@ -2,9 +2,10 @@ import React, {useContext} from "react";
 import {Outlet} from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import LeftBar from "../leftbar/LeftBar";
-import RightBar from "../rightbar/RichtBar";
+import RightBar from "../rightbar/RightBar";
 import './Layout.css';
 import {DarkModeContext} from "../../context/darkModeContext";
+
 
 export default function Layout() {
 
