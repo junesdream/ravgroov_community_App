@@ -7,7 +7,7 @@ import usePosts from "../../usePosts";
 
 export default function Home() {
 
-    const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
+    const {posts, deletePost} = usePosts();
 
     return (
         <div className="home">

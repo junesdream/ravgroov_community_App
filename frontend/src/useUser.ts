@@ -34,7 +34,7 @@ export default function useUser() {
                 setUser(response.data);
                 toast.success("Login Successful!");
             })
-            .catch(error => {
+            .catch((error) => {
                 toast.error("Login Failed: Please check your username and password.");
         });
     }
@@ -45,7 +45,7 @@ export default function useUser() {
                 setUser(undefined);
                 toast.success("Logout Successful!");
             })
-            .catch(error => {
+            .catch((error) => {
                 toast.error("Logout failed:");
             });
     }

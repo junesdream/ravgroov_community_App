@@ -12,21 +12,17 @@ import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
-import ProtectedRoutes from "./ProtectedRoutes";
-import {Post} from "./model/Post";
-import {AuthContext} from "./context/authContext";
 
 
 
 function App() {
 
-    const {posts, allPosts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
+    const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
     const memoizedLoadAllPosts = useCallback(loadAllPosts, [loadAllPosts]);
 
     const {user, login, logout, isLoading} = useUser();
 
-    const { currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         if (user) {
