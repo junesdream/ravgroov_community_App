@@ -1,3 +1,6 @@
+@import '../layout/Layout.css';
+
+/*
 .post_card {
     padding: 20px;
 }
@@ -16,4 +19,92 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+}*/
+
+.post_card{
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: var(--bg);
+    color: var(--text-color);
 }
+
+.post_container {
+    padding: 20px;
+}
+
+.post_user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post_userInfo{
+    display: flex;
+    gap: 20px;
+}
+
+.post_userInfo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.post_details{
+    display: flex;
+    flex-direction: column;
+}
+
+.post_name {
+    font-weight: 500;
+}
+
+.post_date {
+    font-size: 12px;
+}
+
+.post_content {
+    margin: 20px 0px;
+}
+
+.post_content img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.post_info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.post_item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post_card-btn {
+    display: flex;
+    padding: 5px;
+}
+
+.post_card-btn button {
+    width: 70px;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: black;
+    border: 3px solid deeppink;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+

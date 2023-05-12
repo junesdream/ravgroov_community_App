@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useContext, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PostGallery from "./components/PostGallery/PostGallery";
@@ -13,13 +13,20 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import ProtectedRoutes from "./ProtectedRoutes";
+import {Post} from "./model/Post";
+import {AuthContext} from "./context/authContext";
+
 
 
 function App() {
-    const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
+
+    const {posts, allPosts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
     const memoizedLoadAllPosts = useCallback(loadAllPosts, [loadAllPosts]);
+
     const {user, login, logout, isLoading} = useUser();
+
+    const { currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         if (user) {
@@ -31,7 +38,9 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
+
                     {/*<Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>*/}
+
                     <Route
                         path="/"
                         element={
@@ -42,11 +51,12 @@ function App() {
                         <Route path="/profile/:id" element={<Profile/>}/>
                     </ Route>
 
-                    <Route path="/posts/:id" element={<PostDetail/>}/>
+                   <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+
                     {/*</Route>*/}
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>

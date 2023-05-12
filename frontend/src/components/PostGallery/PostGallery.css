@@ -1,3 +1,4 @@
+/*
 .post_gallery{
     display: flex;
     gap: 12px;
@@ -7,8 +8,14 @@
     background-color: aqua;
 }
 
+
 .post_gallery-column{
     padding: 30px;
     border: 2px solid red;
 }
-
+*/
+.post_gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState, ReactNode, useContext} from "react";
+import React, {createContext, useEffect, useState, ReactNode} from "react";
 
 type User = {
     id: number;
@@ -15,9 +15,10 @@ type AuthContextProviderProps = {
     children: ReactNode;
 };
 
-export const AuthContext = createContext<AuthContextValue | null>(null);
+export const AuthContext = createContext<AuthContextValue>({currentUser: null, login: () =>{}});
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
+
     const [currentUser, setCurrentUser] = useState<User | null>(
         JSON.parse(localStorage.getItem("user") || "null")
     );
@@ -25,7 +26,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     const login = () => {
         setCurrentUser({
             id: 1,
-            name: "John Doe",
+            name: "Dora Park",
             profilePic:
                 "https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200",
         });
