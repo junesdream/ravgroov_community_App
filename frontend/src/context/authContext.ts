@@ -7,7 +7,7 @@ type User = {
 };
 
 type AuthContextValue = {
-    currentUser: User | null;
+    currentUser: User;
     login: () => void;
 };
 
@@ -15,11 +15,11 @@ type AuthContextProviderProps = {
     children: ReactNode;
 };
 
-export const AuthContext = createContext<AuthContextValue>({currentUser: null, login: () =>{}});
+export const AuthContext = createContext<AuthContextValue>({currentUser: {id: 1, name: "Dora Park", profilePic: " https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200"}, login: () =>{}});
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
-    const [currentUser, setCurrentUser] = useState<User | null>(
+    const [currentUser, setCurrentUser] = useState<User>(
         JSON.parse(localStorage.getItem("user") || "null")
     );
 

@@ -13,8 +13,7 @@ export default function Login(props: Props) {
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
-   const {login} = useContext(AuthContext);
-
+    const {login} = useContext(AuthContext);
     const handleLogin = () => {
         login();
     }
@@ -46,8 +45,8 @@ export default function Login(props: Props) {
                     </p>
                     <span>Don't you have an account?</span>
                     <Link to="/register">
-                    <button>Register</button>
-                </Link>
+                        <button>Register</button>
+                    </Link>
 
                 </div>
                 <div className="log_right">

@@ -12,23 +12,23 @@ import {Link} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
 import {AuthContext} from "../../context/authContext";
 
-export default function Navbar(){
+export default function Navbar() {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
-    const { currentUser } = useContext(AuthContext);
+    const {currentUser} = useContext(AuthContext);
 
 
     return (
         <div className="navBar">
             <div className="nav_left">
-                <Link to="/" style={{textDecoration:"none"}}>
-                <span> RavGroov </span>
+                <Link to="/" style={{textDecoration: "none"}}>
+                    <span> RavGroov </span>
                 </Link>
-                <HomeOutlinedIcon />
-                {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle} />}
-                <GridViewOutlinedIcon />
+                <HomeOutlinedIcon/>
+                {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle}/>}
+                <GridViewOutlinedIcon/>
                 <div className="nav_search">
-                    <SearchOutlinedIcon />
+                    <SearchOutlinedIcon/>
                     <input type="text" placeholder="Search..."/>
                 </div>
             </div>

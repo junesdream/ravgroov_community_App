@@ -19,9 +19,7 @@ function App() {
 
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
-
     const {user, login} = useUser();
-
 
     useEffect(() => {
         if (user) {
