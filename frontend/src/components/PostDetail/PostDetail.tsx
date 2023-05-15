@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./PostDetail.css"
 import {Post} from "../../model/Post";
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import PlaceIcon from "@mui/icons-material/Place";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -33,10 +33,13 @@ export default function PostDetail(props: Props) {
             })
     }
 
+    const navigate = useNavigate();
+
     function onDeleteClick() {
 
         if (post) {
             props.deletePost(post.id)
+            navigate("/posts/add")
         }
     }
 
