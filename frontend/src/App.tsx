@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import PostGallery from "./components/PostGallery/PostGallery";
 import AddPost from "./components/AddPost/AddPost";
 import PostDetail from "./components/PostDetail/PostDetail";
 import UpdatePost from "./components/UpdatePost/UpdatePost";

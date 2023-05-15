@@ -1,18 +1,10 @@
 import React, {useEffect, useState} from "react";
 import "./PostDetail.css"
 import {Post} from "../../model/Post";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
-import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import PinterestIcon from "@mui/icons-material/Pinterest";
 import PlaceIcon from "@mui/icons-material/Place";
 import LanguageIcon from "@mui/icons-material/Language";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import PostGallery from "../PostGallery/PostGallery";
 
 type Props = {
     deletePost: (id: string) => void
