@@ -1,0 +1,63 @@
+@import '../../components/layout/Layout.css';
+
+.post_detail {
+    background-color: var(--bg-soft);
+}
+
+.detail_profile_info{
+    margin-top: 50px;
+    height: 180px;
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: var(--bg);
+    color: var(--text-color);
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.post_detail_container{
+    padding: 20px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.post_detail-content{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: var(--bg);
+    color: var(--text-color);
+    padding: 50px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.detail-content_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.detail-content_btn button{
+    width: 70px;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: black;
+    border: 3px solid deeppink;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

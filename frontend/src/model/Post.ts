@@ -10,8 +10,12 @@ export type Post = {
 }
 
 export type NewPost = {
+    id: string,
     title: string,
     userName: string,
     postImg: string,
-    description: string
+    description: string,
+    profilePic: string,
+    url: string,
+    like: boolean,
 }

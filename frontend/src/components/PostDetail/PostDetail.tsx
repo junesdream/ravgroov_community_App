@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from "react";
 import "./PostDetail.css"
 import {Post} from "../../model/Post";
-import {useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import PlaceIcon from "@mui/icons-material/Place";
+import LanguageIcon from "@mui/icons-material/Language";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import PostGallery from "../PostGallery/PostGallery";
 
 type Props = {
-
     deletePost: (id: string) => void
 }
 
@@ -13,6 +22,7 @@ export default function PostDetail(props: Props) {
 
     const [post, setPost] = useState<Post>();
     const {id} = useParams<{ id: string }>()
+
 
     useEffect(() => {
         if (id) {
@@ -33,27 +43,75 @@ export default function PostDetail(props: Props) {
 
     function onDeleteClick() {
 
-        if(post) {
+        if (post) {
             props.deletePost(post.id)
         }
     }
 
+
     return (
         <div className="post_detail">
-            {
-                post
-                    ? <div className="detail-content">
-                        <p>{post.id}</p>
-                        <p>{post.title}</p>
-                        <p>{post.userName}</p>
-                        <p>{post.postImg}</p>
-                        <p>{post.description}</p>
-                        <p>{post.url}</p>
-                        <p>{post.like}</p>
+
+            <div className="profile_images">
+                <img
+                    src="https://images.pexels.com/photos/1190299/pexels-photo-1190299.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt=""
+                    className="cover"
+                />
+                <img
+                    src="https://images.pexels.com/photos/3903092/pexels-photo-3903092.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="DJ"
+                    className="profilePic"
+                />
+            </div>
+
+            <div className="profile_container">
+                <div className="detail_profile_info">
+
+                    <div className="profile_center">
+                        <span>Mikey Poladoors</span>
+                        <div className="profile_center_info">
+                            <div className="profile_center_item">
+                                <PlaceIcon/>
+                                <span>Germany</span>
+                            </div>
+                            <div className="profile_center_item">
+                                <LanguageIcon/>
+                                <span>RA</span>
+                            </div>
+                        </div>
+                        <button>follow</button>
+                        <span>My Posts</span>
                     </div>
-                    : <div>Loading...</div>
-            }
+                </div>
+            </div>
+
+
+            <div className="post_detail_container">
+                {
+                    post
+                        ? <div className="post_detail-content">
+                            <p>{post.id}</p>
+                            <p>{post.title}</p>
+                            <p>{post.userName}</p>
+                            <p>{post.description}</p>
+                            <p>{post.url}</p>
+                            <p>{post.like}</p>
+                        </div>
+
+                        : <div>Loading...</div>
+                }
+
+            </div>
+
+            <div className="detail-content_btn">
+            <Link to="/posts/update/:id">
+                <button> Edit</button>
+            </Link>
             <button onClick={onDeleteClick}>Delete</button>
+        </div>
+
+
         </div>
     )
 }

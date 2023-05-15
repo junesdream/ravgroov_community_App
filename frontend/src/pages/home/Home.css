@@ -4,3 +4,16 @@
     padding: 20px 70px;
     background-color: var(--bg-soft);
 }
+
+@media (max-width: 480px) {
+    .home {
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .home {
+        padding: 20px;
+    }
+}

@@ -108,3 +108,16 @@
     animation:slidebg 2s linear infinite;
 }
 
+@media (max-width: 480px) {
+    .rightBar {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .rightBar {
+        display: none;
+    }
+}
+
+

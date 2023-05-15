@@ -10,11 +10,9 @@ type Props = {
 }
 
 export default function PostGallery(props: Props) {
-
     return (
         <div className='post_gallery'>
-            <h2>All Posts</h2>
-
+            <h1>Posts Gallery </h1>
             {
                 props.posts.map((post) => <PostCard key={post.id} post={post} deletePost={props.deletePost}/>)
             }

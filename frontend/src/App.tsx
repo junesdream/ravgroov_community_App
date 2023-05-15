@@ -42,11 +42,16 @@ function App() {
                     >
                         <Route path="/" element={<Home/>}/>
                         <Route path="/profile/:id" element={<Profile/>}/>
+                        <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />} />
+
+                        <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
+                        <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+
                     </ Route>
 
-                   <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
+              {/*     <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
-
+*/}
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
 
