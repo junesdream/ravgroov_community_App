@@ -49,12 +49,12 @@ export default function PostDetail(props: Props) {
 
             <div className="profile_images">
                 <img
-                    src="https://images.pexels.com/photos/1190299/pexels-photo-1190299.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/7143278/pexels-photo-7143278.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt=""
                     className="cover"
                 />
                 <img
-                    src="https://images.pexels.com/photos/3903092/pexels-photo-3903092.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/6430117/pexels-photo-6430117.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt="DJ"
                     className="profilePic"
                 />
@@ -64,19 +64,19 @@ export default function PostDetail(props: Props) {
                 <div className="detail_profile_info">
 
                     <div className="profile_center">
-                        <span>Mikey Poladoors</span>
+                        <span>Peaceful Sonora</span>
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>
-                                <span>Germany</span>
+                                <span>Canada</span>
                             </div>
                             <div className="profile_center_item">
                                 <LanguageIcon/>
                                 <span>RA</span>
                             </div>
                         </div>
-                        <button>follow</button>
-                        <span>My Posts</span>
+                        <button>Follow</button>
+                        <span>My Messages</span>
                     </div>
                 </div>
             </div>

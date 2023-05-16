@@ -71,12 +71,12 @@ export default function UpdatePost(props: UpdatePostProps) {
 
             <div className="profile_images">
                 <img
-                    src="https://images.pexels.com/photos/1190299/pexels-photo-1190299.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/11001338/pexels-photo-11001338.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt=""
                     className="cover"
                 />
                 <img
-                    src="https://images.pexels.com/photos/3903092/pexels-photo-3903092.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/16756722/pexels-photo-16756722.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt="DJ"
                     className="profilePic"
                 />
@@ -86,19 +86,19 @@ export default function UpdatePost(props: UpdatePostProps) {
                 <div className="detail_profile_info">
 
                     <div className="profile_center">
-                        <span>Mikey Poladoors</span>
+                        <span>Minimal Crowd</span>
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>
-                                <span>Germany</span>
+                                <span>Sweden</span>
                             </div>
                             <div className="profile_center_item">
                                 <LanguageIcon/>
-                                <span>RA</span>
+                                <span>TRB</span>
                             </div>
                         </div>
-                        <button>follow</button>
-                        <span>My Posts</span>
+                        <button>Follow Me</button>
+                        <span>Our Sonory</span>
                     </div>
                 </div>
             </div>
