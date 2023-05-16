@@ -2,7 +2,6 @@ import React from "react";
 import './Home.css';
 import Stories from "../../components/stories/Stories";
 import PostGallery from "../../components/PostGallery/PostGallery";
-import usePosts from "../../usePosts";
 import {Post} from "../../model/Post";
 
 type Props = {

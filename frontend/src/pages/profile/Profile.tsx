@@ -33,16 +33,16 @@ export default function Profile() {
             <div className="profile_container">
                 <div className="profile_info">
                     <div className="profile_info_left">
-                        <a href="http://facebook.com">
+                        <a href="https://facebook.com://facebook.com">
                             <FacebookTwoToneIcon fontSize="large"/>
                         </a>
-                        <a href="http://instagram.com">
+                        <a href="https://instagram.com">
                             <InstagramIcon fontSize="large"/>
                         </a>
-                        <a href="http://twitter.com">
+                        <a href="https://twitter.com">
                             <TwitterIcon fontSize="large"/>
                         </a>
-                        <a href="http://linkedin.com">
+                        <a href="https://linkedin.com">
                             <LinkedInIcon fontSize="large"/>
                         </a>
                     </div>

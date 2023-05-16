@@ -67,7 +67,7 @@ export default function AddPost(props: AddPostProps) {
                 <div className="detail_profile_info">
 
                     <div className="profile_center">
-                        <span>Mikey Poladoors</span>
+                        <span>Beat Sound</span>
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>
