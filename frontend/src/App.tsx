@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import PostGallery from "./components/PostGallery/PostGallery";
 import AddPost from "./components/AddPost/AddPost";
 import PostDetail from "./components/PostDetail/PostDetail";
 import UpdatePost from "./components/UpdatePost/UpdatePost";
@@ -40,17 +39,24 @@ function App() {
                             <Layout/>
                         }
                     >
-                        <Route path="/" element={<Home/>}/>
+                        <Route path="/" element={<Home posts={posts} deletePost={deletePost}/> }/>
                         <Route path="/profile/:id" element={<Profile/>}/>
+                        <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />} />
+
+                        <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
+                        <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+
                     </ Route>
 
-                   <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
+              {/*     <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
 
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
-
+               */}
                     {/*</Route>*/}
+
+
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>

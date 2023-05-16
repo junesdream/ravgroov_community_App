@@ -24,7 +24,7 @@ export default function PostCard(props: Props) {
 
     const [commentOpen, setCommentOpen] = useState(false);
 
-    const liked = false;
+    const liked = true;
 
     return (
         <div className='post_card'>
@@ -53,7 +53,7 @@ export default function PostCard(props: Props) {
                 </div>
                 <div className="post_info">
                     <div className="post_item">
-                        {liked ? <FavoriteOutlinedIcon/> : <FavoriteBorderOutlinedIcon/>}
+                        {liked ? <FavoriteOutlinedIcon style={{color: "red" }}/> : <FavoriteBorderOutlinedIcon/>}
                         12 Likes
                     </div>
                     <div className="post_item" onClick={() => setCommentOpen(!commentOpen)}>

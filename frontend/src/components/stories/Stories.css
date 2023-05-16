@@ -45,3 +45,34 @@
     align-items: center;
     justify-content: center;
 }
+@media (max-width: 480px) {
+    .stories {
+        height: 50px;
+        justify-content: space-between;
+    }
+
+    .story{
+        flex: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .story span{
+        display: none;
+    }
+
+    .story button{
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
+@media (max-width: 960px) {
+    .stories {
+        height: 150px;
+        gap: 20px;
+    }
+}

@@ -30,10 +30,12 @@
     -webkit-text-fill-color: #0000;
     background-clip: text;
 }
+
 @keyframes animatedBackground_a {
     0% { background-position: 0 0 }
     100% { background-position: -500px 0 }
 }
+
 
 .nav_search {
     display: flex;
@@ -73,4 +75,22 @@
 
 .nav_right span {
 
+}
+
+@media (max-width: 480px) {
+    .nav_search input {
+        display: none;
+    }
+    .nav_right {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .nav_search input {
+        width: 200px;
+    }
+    .nav_user{
+        display: none;
+    }
 }
