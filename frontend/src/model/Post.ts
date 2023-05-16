@@ -10,7 +10,6 @@ export type Post = {
 }
 
 export type NewPost = {
-    id: string,
     title: string,
     userName: string,
     postImg: string,

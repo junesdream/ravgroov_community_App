@@ -14,7 +14,7 @@ type UpdatePostProps = {
 export default function UpdatePost(props: UpdatePostProps) {
 
     const initialState: Post = {
-        id: "",
+        id: " ",
         title: "Spring Rite",
         userName: "oy World",
         postImg: "",

@@ -3,16 +3,21 @@ import './Home.css';
 import Stories from "../../components/stories/Stories";
 import PostGallery from "../../components/PostGallery/PostGallery";
 import usePosts from "../../usePosts";
+import {Post} from "../../model/Post";
+
+type Props = {
+    posts: Post[]
+    deletePost: (id: string) => void
+}
+
+export default function Home(props: Props) {
 
 
-export default function Home() {
-
-    const {posts, deletePost} = usePosts();
 
     return (
         <div className="home">
             <Stories/>
-            <PostGallery posts={posts} deletePost={deletePost}/>
+            <PostGallery posts={props.posts} deletePost={props.deletePost}/>
         </div>
     )
 }

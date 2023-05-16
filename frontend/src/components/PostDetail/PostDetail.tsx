@@ -90,7 +90,7 @@ export default function PostDetail(props: Props) {
                             <p>{post.title}</p>
                             <p>{post.userName}</p>
                             <p>{post.description}</p>
-                            <p>{post.url}</p>
+                            <img src={post.url} alt=""/>
                             <p>{post.like}</p>
                         </div>
 
@@ -100,7 +100,8 @@ export default function PostDetail(props: Props) {
             </div>
 
             <div className="detail-content_btn">
-            <Link to="/posts/update/:id">
+            <Link to={
+                post ? "/posts/update/" + post.id : "/"}>
                 <button> Edit</button>
             </Link>
             <button onClick={onDeleteClick}>Delete</button>

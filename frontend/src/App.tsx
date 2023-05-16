@@ -39,7 +39,7 @@ function App() {
                             <Layout/>
                         }
                     >
-                        <Route path="/" element={<Home/>}/>
+                        <Route path="/" element={<Home posts={posts} deletePost={deletePost}/> }/>
                         <Route path="/profile/:id" element={<Profile/>}/>
                         <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />} />
 
@@ -50,11 +50,13 @@ function App() {
 
               {/*     <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
                     <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
-*/}
+
                     <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                     <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
-
+               */}
                     {/*</Route>*/}
+
+
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>

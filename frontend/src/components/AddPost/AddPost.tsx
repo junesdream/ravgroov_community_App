@@ -13,7 +13,6 @@ export default function AddPost(props: AddPostProps) {
     const navigate = useNavigate();
 
     const initialState = {
-        id: "",
         title: "",
         userName: "",
         postImg: "",
