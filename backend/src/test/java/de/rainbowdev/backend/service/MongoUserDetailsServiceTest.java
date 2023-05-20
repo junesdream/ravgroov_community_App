@@ -32,7 +32,5 @@ public class MongoUserDetailsServiceTest {
         //THENW
         verify(mongoUserRepository).findMongoUserByUsername("testUser");
         assertEquals(expected, actual);
-
-
     }
 }
