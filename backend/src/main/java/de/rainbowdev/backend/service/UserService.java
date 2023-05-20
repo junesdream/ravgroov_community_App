@@ -23,7 +23,7 @@ public class UserService {
             throw new IllegalArgumentException("The username already exists.");
         } else {
             String encodedPassword = encoder.encode(mongoUser.password());
-            MongoUser encodedUser = new MongoUser(mongoUser.id(), mongoUser.username(), encodedPassword);
+            MongoUser encodedUser = new MongoUser(mongoUser.username(), encodedPassword);
             return mongoUserRepository.save(encodedUser);
         }
     }
