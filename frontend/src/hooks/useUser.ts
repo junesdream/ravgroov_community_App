@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
-import {User, UserModel} from "./model/User";
+import {User, UserModel} from "../model/User";
 
 
 
