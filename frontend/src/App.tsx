@@ -36,7 +36,7 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <Layout/>
+                            <Layout />
                         }
                     >
                         <Route path="/" element={<Home posts={posts} deletePost={deletePost}/> }/>

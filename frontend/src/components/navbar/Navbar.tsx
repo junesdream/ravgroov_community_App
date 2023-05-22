@@ -8,14 +8,18 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import NotificationsLogoutIcon from '@mui/icons-material/LogoutOutlined';
 import {Link} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
 import {AuthContext} from "../../context/authContext";
+import {LogoutOutlined} from "@mui/icons-material";
+import useUser from "../../useUser";
 
 export default function Navbar() {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
-    const {currentUser} = useContext(AuthContext);
+    //const {currentUser} = useContext(AuthContext);
+    const {user} = useUser();
 
 
     return (
@@ -37,12 +41,17 @@ export default function Navbar() {
                 <EmailOutlinedIcon />
                 <NotificationsOutlinedIcon />
 
-                {currentUser && (
+            {/*    {currentUser && (
                     <>
                         <img src={currentUser.profilePic} alt=" " />
                         <span>{currentUser.name}</span>
                     </>
-                )}
+                )}*/}
+
+                {user}
+                <Link to="/login" style={{textDecoration:"none", color:"springgreen" }}>
+                <LogoutOutlined />
+                    </Link>
 
             </div>
         </div>
