@@ -13,12 +13,11 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 
 
-
 function App() {
 
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
-    const {user, checkLoggedInUser, login, createUser, logoutUser} = useUser();
+    const {user, isLoggedIn, login, createUser, logoutUser, loadUser} = useUser();
 
     useEffect(() => {
         if (user) {
@@ -36,7 +35,7 @@ function App() {
                     <Route
                         path="/"
                         element={
-                            <Layout />
+                            <Layout logoutUser={logoutUser} userDetails={user} />
                         }
                     >
                         <Route path="/" element={<Home posts={posts} deletePost={deletePost}/> }/>

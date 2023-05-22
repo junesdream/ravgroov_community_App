@@ -1,22 +1,25 @@
-import React, {useContext} from "react";
-import {Outlet} from "react-router-dom";
-import Navbar from "../navbar/Navbar";
-import LeftBar from "../leftbar/LeftBar";
-import RightBar from "../rightbar/RightBar";
+import React, { useContext } from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../navbar/Navbar';
+import LeftBar from '../leftbar/LeftBar';
+import RightBar from '../rightbar/RightBar';
 import './Layout.css';
-import {DarkModeContext} from "../../context/darkModeContext";
-import useUser from "../../useUser";
+import { DarkModeContext } from '../../context/darkModeContext';
 
 
 
-export default function Layout() {
+type Props = {
+    logoutUser: () => Promise<void>;
+    userDetails: string | undefined;
+};
 
-    const {darkMode} = useContext(DarkModeContext);
+export default function Layout(props: Props) {
+    const { darkMode } = useContext(DarkModeContext);
 
     return (
-        <div className={`theme-${darkMode ? "dark" : "light"}`}>
-            <Navbar />
-            <div style={{ display: "flex" }}>
+        <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
+            <Navbar onLogout={props.logoutUser} userDetails={props.userDetails} />
+            <div style={{ display: 'flex' }}>
                 <LeftBar />
                 <div style={{ flex: 6 }}>
                     <Outlet />
@@ -26,5 +29,4 @@ export default function Layout() {
         </div>
     );
 }
-
 

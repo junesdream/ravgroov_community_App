@@ -18,11 +18,31 @@ import {User} from "../../model/User";
 import {toast} from "react-toastify";
 
 
-export default function Navbar() {
+type Props = {
+    onLogout: () => Promise<void>
+    userDetails: string | undefined
+}
+
+export default function Navbar(props: Props) {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
     //const {currentUser} = useContext(AuthContext);
-    const {user} = useUser();
+    //const {user} = useUser();
+
+  const [, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+    async function logoutUser() {
+        try {
+            await props.onLogout();
+            setIsLoggedIn(false);
+            navigate("/login");
+            toast.success("Successfully logged out!")
+        } catch (r) {
+            console.error(r);
+            toast.error("Couldn't log out: " + r)
+        }
+    }
 
 
     return (
@@ -49,15 +69,21 @@ export default function Navbar() {
                         <img src={currentUser.profilePic} alt=" " />
                         <span>{currentUser.name}</span>
                     </>
-                )}*/}
+                )}
 
-                {user}
-                <Link to="/login" style={{textDecoration:"none", color:"springgreen" }}>
-                <LogoutOutlined />
-                    </Link>
+                {user} */}
+
+                <span>{props.userDetails}</span>
+
+
+                <Link to="#" onClick={logoutUser} className="logout">   <LogoutOutlined />  </Link>
+
+
+              {/*  <Link to="/login" style={{textDecoration:"none", color:"springgreen" }}>
+             <LogoutOutlined />
+                    </Link>*/}
 
             </div>
         </div>
     )
-
 }

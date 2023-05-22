@@ -4,8 +4,6 @@ import {useNavigate, Link} from "react-router-dom";
 import {AuthContext} from "../../context/authContext";
 import useUser from "../../useUser";
 
-
-
 type Props = {
     onLogin: (username: string, password: string) => Promise<void>
 }
@@ -13,11 +11,6 @@ export default function Login(props: Props) {
 
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-
-    const {login} = useContext(AuthContext);
-    const handleLogin = () => {
-        login();
-    }
 
     const navigate = useNavigate()
 
@@ -55,7 +48,7 @@ export default function Login(props: Props) {
                     <form onSubmit={onSubmit}>
                         <input value={username} placeholder="username" type="text" onChange={e => setUsername(e.target.value)}/>
                         <input value={password} placeholder="password" type="password" onChange={e => setPassword(e.target.value)} />
-                        <button type="submit" onClick={handleLogin} >Login </button>
+                        <button type="submit"  >Login </button>
                     </form>
                 </div>
             </div>

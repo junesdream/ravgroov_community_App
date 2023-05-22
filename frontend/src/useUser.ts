@@ -7,7 +7,7 @@ import {User, UserModel} from "./model/User";
 
 export default function useUser() {
     const [user, setUser] = useState<string>();
-    const [checkLoggedInUser, setCheckLoggedInUser] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadUser, setLoadUser] = useState<User>();
 
@@ -75,15 +75,12 @@ export default function useUser() {
         })
     }
 
-    const getLoadUser = async (username: string) => {
-        return await axios.get("/api/users/${username}", {
-            withCredentials: true
-        }).then((response) => {
-            setUser(response.data)
-
-        }).catch((error) => {
-            console.error(error);
-        })
+    function getLoadUser(user: string) {
+        axios.get("/api/users/${username}")
+            .then(response => {
+                setLoadUser(response.data);
+            })
+            .catch(() => console.error("Couldn't load all cars"));
     }
 
     function logoutUser() {
@@ -93,7 +90,5 @@ export default function useUser() {
         });
     }
 
-
-
-    return {user, login, checkLoggedInUser, isLoading, createUser, loadUser, logoutUser}
+    return {user, login, isLoggedIn, isLoading, createUser, logoutUser, loadUser}
 }
