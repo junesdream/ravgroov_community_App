@@ -8,13 +8,11 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import NotificationsLogoutIcon from '@mui/icons-material/LogoutOutlined';
 import {Link, useNavigate} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
-import {AuthContext} from "../../context/authContext";
+// import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {LogoutOutlined} from "@mui/icons-material";
-import useUser from "../../useUser";
-import {User} from "../../model/User";
 import {toast} from "react-toastify";
 
 
@@ -26,8 +24,7 @@ type Props = {
 export default function Navbar(props: Props) {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
-    //const {currentUser} = useContext(AuthContext);
-    //const {user} = useUser();
+
 
   const [, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
@@ -64,26 +61,18 @@ export default function Navbar(props: Props) {
                 <EmailOutlinedIcon />
                 <NotificationsOutlinedIcon />
 
-            {/*    {currentUser && (
-                    <>
-                        <img src={currentUser.profilePic} alt=" " />
-                        <span>{currentUser.name}</span>
-                    </>
-                )}
+           {/*     <div className="nav_right_items">
+                <span>  <AccountBoxIcon /> </span>
+                <span>{props.userDetails} </span>
+                </div>*/}
 
-                {user} */}
+               <AccountCircleIcon id="nav_right_icon" />
+                <span>{props.userDetails} </span>
 
-                <span>{props.userDetails}</span>
-
-
-                <Link to="#" onClick={logoutUser} className="logout">   <LogoutOutlined />  </Link>
-
-
-              {/*  <Link to="/login" style={{textDecoration:"none", color:"springgreen" }}>
-             <LogoutOutlined />
-                    </Link>*/}
+                <Link to="#" onClick={logoutUser} className="nav_right_logout">   <LogoutOutlined />  </Link>
 
             </div>
+
         </div>
     )
 }

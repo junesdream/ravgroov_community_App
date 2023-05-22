@@ -7,6 +7,7 @@ import {Post} from "../../model/Post";
 type Props = {
     posts: Post[]
     deletePost: (id: string) => void
+    userDetails: string | undefined
 }
 
 export default function Home(props: Props) {
@@ -15,7 +16,7 @@ export default function Home(props: Props) {
 
     return (
         <div className="home">
-            <Stories/>
+            <Stories userDetails={props.userDetails}/>
             <PostGallery posts={props.posts} deletePost={props.deletePost}/>
         </div>
     )

@@ -38,7 +38,7 @@ function App() {
                             <Layout logoutUser={logoutUser} userDetails={user} />
                         }
                     >
-                        <Route path="/" element={<Home posts={posts} deletePost={deletePost}/> }/>
+                        <Route path="/" element={<Home posts={posts} deletePost={deletePost} userDetails={user}/>  }/>
                         <Route path="/profile/:id" element={<Profile/>}/>
                         <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />} />
 
@@ -46,15 +46,6 @@ function App() {
                         <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
 
                     </ Route>
-
-              {/*     <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />}/>
-                    <Route path="/posts" element={<PostGallery posts={posts} deletePost={deletePost}/>}/>
-
-                    <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
-                    <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
-               */}
-                    {/*</Route>*/}
-
 
                     <Route path="/register" element={<Register createUser={createUser}/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>

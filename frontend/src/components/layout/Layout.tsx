@@ -7,7 +7,6 @@ import './Layout.css';
 import { DarkModeContext } from '../../context/darkModeContext';
 
 
-
 type Props = {
     logoutUser: () => Promise<void>;
     userDetails: string | undefined;
@@ -20,7 +19,7 @@ export default function Layout(props: Props) {
         <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
             <Navbar onLogout={props.logoutUser} userDetails={props.userDetails} />
             <div style={{ display: 'flex' }}>
-                <LeftBar />
+                <LeftBar userDetails={props.userDetails} />
                 <div style={{ flex: 6 }}>
                     <Outlet />
                 </div>
