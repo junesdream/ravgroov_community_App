@@ -18,7 +18,7 @@ function App() {
 
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
 
-    const {user, login} = useUser();
+    const {user, checkLoggedInUser, login, createUser, logoutUser} = useUser();
 
     useEffect(() => {
         if (user) {
@@ -57,7 +57,7 @@ function App() {
                     {/*</Route>*/}
 
 
-                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/register" element={<Register createUser={createUser}/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>
 

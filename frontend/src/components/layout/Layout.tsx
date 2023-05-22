@@ -5,6 +5,8 @@ import LeftBar from "../leftbar/LeftBar";
 import RightBar from "../rightbar/RightBar";
 import './Layout.css';
 import {DarkModeContext} from "../../context/darkModeContext";
+import useUser from "../../useUser";
+
 
 
 export default function Layout() {

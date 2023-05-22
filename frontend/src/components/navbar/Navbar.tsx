@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./Navbar.css";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
@@ -9,11 +9,14 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import NotificationsLogoutIcon from '@mui/icons-material/LogoutOutlined';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
 import {AuthContext} from "../../context/authContext";
 import {LogoutOutlined} from "@mui/icons-material";
 import useUser from "../../useUser";
+import {User} from "../../model/User";
+import {toast} from "react-toastify";
+
 
 export default function Navbar() {
 

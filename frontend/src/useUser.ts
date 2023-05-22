@@ -1,12 +1,15 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
+import {User, UserModel} from "./model/User";
 
 
 
 export default function useUser() {
-    const [user, setUser] = useState<string>()
+    const [user, setUser] = useState<string>();
+    const [checkLoggedInUser, setCheckLoggedInUser] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+    const [loadUser, setLoadUser] = useState<User>();
 
     useEffect(() => {
         function checkLoggedInUser() {
@@ -17,7 +20,7 @@ export default function useUser() {
                         setUser(response.data);
                     }
                 })
-                .catch((error) => {
+                .catch((r) => {
                     toast.error("Error checking logged-in user:");
                 })
                 .finally(() => {
@@ -28,7 +31,15 @@ export default function useUser() {
         checkLoggedInUser();
     }, []);
 
-    function login(username: string, password: string) {
+
+    useEffect(() => {
+        if (user) {
+            getLoadUser(user);
+        }
+    }, [user]);
+
+
+  function login(username: string, password: string) {
         return axios.post("/api/users/login", undefined, {auth: {username, password}})
             .then(response => {
                 setUser(response.data);
@@ -38,6 +49,8 @@ export default function useUser() {
                 toast.error("Login Failed: Please check your username and password.");
         });
     }
+
+
 
     function logout() {
         axios.post("/api/users/logout")
@@ -50,5 +63,37 @@ export default function useUser() {
             });
     }
 
-    return {user, login, logout, isLoading}
+    const createUser = async (newUser: UserModel) => {
+        return await axios.post("/api/users/signup", newUser, {
+            withCredentials: true
+        }).then((response) => {
+            setUser(response.data)
+            return true;
+        }).catch((error) => {
+            console.error(error);
+            return false;
+        })
+    }
+
+    const getLoadUser = async (username: string) => {
+        return await axios.get("/api/users/${username}", {
+            withCredentials: true
+        }).then((response) => {
+            setUser(response.data)
+
+        }).catch((error) => {
+            console.error(error);
+        })
+    }
+
+    function logoutUser() {
+        return new Promise<void>((resolve) => {
+            logout();
+            resolve();
+        });
+    }
+
+
+
+    return {user, login, checkLoggedInUser, isLoading, createUser, loadUser, logoutUser}
 }
