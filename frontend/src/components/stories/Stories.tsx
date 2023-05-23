@@ -38,7 +38,7 @@ export default function Stories(props: Props) {
             <div className="story">
               {/*<img src={currentUser.profilePic} alt="" />*/}
               <img src="https://images.pexels.com/photos/16821086/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="" />
-                <span>{props.userDetails}</span>
+                <span className="story_username">{props.userDetails}</span>
                 <button>+</button>
             </div>
             {stories.map(story=>(

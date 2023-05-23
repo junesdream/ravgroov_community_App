@@ -24,7 +24,6 @@
     background-image: linear-gradient(white, white), radial-gradient(circle at top left, #f00,#3020ff);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-
     object-fit: cover;
     position: absolute;
     left: 0;
@@ -39,8 +38,8 @@
 
 .profile_info{
     height: 180px;
-    margin-top: 30px;
-    padding: 70px ;
+    margin-top: 50px;
+    padding: 50px ;
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
@@ -77,6 +76,17 @@
     font-weight: 500;
 }
 
+
+.profile_center_name {
+    padding-top: 20px;
+    text-transform: uppercase;
+    background-image: -webkit-linear-gradient(left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+    -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+    background-clip: text
+}
+
 .profile_center_info{
     width: 100%;
     display: flex;
@@ -105,10 +115,11 @@
 
 .profile_center button{
     display: flex;
-    border: solid 2px #FF00CC;
+    text-transform: uppercase;
+    border: thick double var(--border);
     background-color: black;
     color: #66FF66;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
 }

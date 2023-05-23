@@ -49,12 +49,12 @@ export default function PostDetail(props: Props) {
 
             <div className="profile_images">
                 <img
-                    src="https://images.pexels.com/photos/7143278/pexels-photo-7143278.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
+                    src="https://images.pexels.com/photos/11001338/pexels-photo-11001338.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt=""
                     className="cover"
                 />
                 <img
-                    src="https://images.pexels.com/photos/6430117/pexels-photo-6430117.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
+                    src="https://images.pexels.com/photos/16756722/pexels-photo-16756722.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"
                     alt="DJ"
                     className="profilePic"
                 />
@@ -64,7 +64,13 @@ export default function PostDetail(props: Props) {
                 <div className="detail_profile_info">
 
                     <div className="profile_center">
-                        <span>Peaceful Sonora</span>
+                        {
+                            post
+                                ?
+                                <span className="profile_center_name">{post.userName}</span>
+                                : <div>Loading...</div>
+                        }
+
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>
@@ -80,7 +86,6 @@ export default function PostDetail(props: Props) {
                     </div>
                 </div>
             </div>
-
 
             <div className="post_detail_container">
                 {

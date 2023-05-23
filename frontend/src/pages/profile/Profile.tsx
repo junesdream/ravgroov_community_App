@@ -12,7 +12,13 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PostGallery from "../../components/PostGallery/PostGallery";
 import usePosts from "../../hooks/usePosts";
 
-export default function Profile() {
+type Props = {
+
+    userDetails: string | undefined
+}
+
+
+export default function Profile(props: Props) {
 
     const {posts, deletePost} = usePosts();
 
@@ -25,7 +31,7 @@ export default function Profile() {
                     className="cover"
                 />
                 <img
-                    src="https://images.pexels.com/photos/3903092/pexels-photo-3903092.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/3682820/pexels-photo-3682820.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="DJ"
                     className="profilePic"
                 />
@@ -47,7 +53,8 @@ export default function Profile() {
                         </a>
                     </div>
                     <div className="profile_center">
-                        <span>Beat Life</span>
+                        <span className="profile_center_name">{props.userDetails} </span>
+
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>

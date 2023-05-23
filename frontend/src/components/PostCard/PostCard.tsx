@@ -64,12 +64,12 @@ export default function PostCard(props: Props) {
                         <ShareOutlinedIcon/>
                         Share
                     </div>
-                    <div className="post_card-btn">
-                        <button onClick={() => {
+                    <div className="post_card-btn"  >
+                        <button style={{color:  "#c6e2ff"}} onClick={() => {
                             navigate('/posts/' + props.post.id)
                         }}>Detail
                         </button>
-                        <button onClick={onDeleteClick}>Delete</button>
+                        <button style={{color:  "#c6e2ff"}} onClick={onDeleteClick}>Delete</button>
                     </div>
                 </div>
                 {commentOpen && <Comments/>}

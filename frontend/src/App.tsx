@@ -40,11 +40,11 @@ function App() {
                         }
                     >
                         <Route path="/" element={<Home posts={posts} deletePost={deletePost} userDetails={user}/>  }/>
-                        <Route path="/profile/:id" element={<Profile/>}/>
+                        <Route path="/profile/:id" element={<Profile  userDetails={user}/>}/>
                         <Route path="/posts/:id" element={<PostDetail deletePost={deletePost} />} />
 
                         <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
-                        <Route path="/posts/add" element={<AddPost addPost={addPost}/>}/>
+                        <Route path="/posts/add" element={<AddPost addPost={addPost}  userDetails={user}/>}/>
                     </ Route>
 
                     {/*</Route>*/}
