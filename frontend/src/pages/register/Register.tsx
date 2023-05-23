@@ -29,7 +29,7 @@ export default function Register(props: createUserProps) {
     }
 
 
-    function onSubmit(event: FormEvent<HTMLFormElement>) {
+  /*     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         if (user.username && user.password) {
             props.createUser(user).then((success) => {
@@ -42,14 +42,23 @@ export default function Register(props: createUserProps) {
             });
         }
     }
-
-    /*  function onFileChange(event: ChangeEvent<HTMLInputElement>) {
-          if (event.target.files) {
-              setImage(event.target.files[0])
-          }
-      }
-  */
-    /* const [image, setImage] = useState<File>();*/
+*/
+    async function onSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        if (user.username && user.password) {
+            try {
+                const success = await props.createUser(user);
+                if (success) {
+                    setUser(initial);
+                    navigate("/");
+                } else {
+                    console.log("Invalid");
+                }
+            } catch (error) {
+                console.log("Error:", error);
+            }
+        }
+    }
 
     return (
         <div className="register">

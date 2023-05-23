@@ -77,8 +77,6 @@
 }
 
 .right_buttons button{
-    border: none;
-    padding: 5px;
     color:  #c6e2ff;
     cursor: pointer;
     padding: 10px;
@@ -87,8 +85,6 @@
     border: 1px solid #66FF66;
     border-radius: 10px;
 }
-
-
 
 @media (max-width: 480px) {
     .rightBar {

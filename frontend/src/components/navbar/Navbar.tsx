@@ -60,15 +60,8 @@ export default function Navbar(props: Props) {
                 <PersonOutlinedIcon />
                 <EmailOutlinedIcon />
                 <NotificationsOutlinedIcon />
-
-           {/*     <div className="nav_right_items">
-                <span>  <AccountBoxIcon /> </span>
-                <span>{props.userDetails} </span>
-                </div>*/}
-
                <AccountCircleIcon id="nav_right_icon" />
                 <span>{props.userDetails} </span>
-
                 <Link to="#" onClick={logoutUser} className="nav_right_logout">   <LogoutOutlined />  </Link>
 
             </div>

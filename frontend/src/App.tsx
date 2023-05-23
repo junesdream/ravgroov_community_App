@@ -48,6 +48,7 @@ function App() {
                     </ Route>
 
                     {/*</Route>*/}
+
                     <Route path="/register" element={<Register createUser={createUser}/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
                 </Routes>

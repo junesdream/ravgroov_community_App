@@ -73,7 +73,7 @@
 }
 
 .nav_right_logout{
-    textDecoration:"none";
+    text-decoration: none;
     color: var(--border);
 }
 
