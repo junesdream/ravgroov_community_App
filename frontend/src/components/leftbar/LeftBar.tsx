@@ -15,7 +15,12 @@ import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
 
 
-export default function LeftBar() {
+type Props = {
+    userDetails: string | undefined
+}
+
+
+export default function LeftBar(props: Props) {
 
     //const { currentUser } = useContext(AuthContext);
 
@@ -25,7 +30,7 @@ export default function LeftBar() {
                 <div className="left_menu">
                     <div className="left_user">
                         <img  src="https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200" alt=" "/>
-                        <span>Dora Park</span>
+                        <span>{props.userDetails}</span>
                     </div>
                     <div className="left_item">
                         <img src={Friends} alt=" "/>

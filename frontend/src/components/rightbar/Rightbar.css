@@ -77,35 +77,13 @@
 }
 
 .right_buttons button{
-    border: none;
-    padding: 5px;
-    color: white;
+    color:  #c6e2ff;
     cursor: pointer;
-}
-
-.right_buttons button:first-child {
-    background-image:     linear-gradient(
-            to right,
-            #E7484F,
-            #E7484F 16.65%,
-            #F68B1D 16.65%,
-            #F68B1D 33.3%,
-            #FCED00 33.3%,
-            #FCED00 49.95%,
-            #009E4F 49.95%,
-            #009E4F 66.6%,
-            #00AAC3 66.6%,
-            #00AAC3 83.25%,
-            #732982 83.25%,
-            #732982 100%,
-            #E7484F 100%
-    );
-    animation:slidebg 2s linear infinite;
-}
-
-.right_buttons button:last-child {
-    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-    animation:slidebg 2s linear infinite;
+    padding: 10px;
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid #66FF66;
+    border-radius: 10px;
 }
 
 @media (max-width: 480px) {

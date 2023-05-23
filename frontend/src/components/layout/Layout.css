@@ -4,8 +4,9 @@
     --light-logo: darkblue;
     --light-bg-soft: #f6f3f3;
     --light-text-color-soft: #555;
-    /*---light-text-color-soft: #84DE02;*/
-    --light-border: lightgray;
+    /*--light-text-color-soft: #84DE02;*/
+    --light-border: #909090;
+    --light-button-bg: #404040;
     --dark-text-color: whitesmoke;
     --dark-bg: #222;
     --dark-logo: white;
@@ -21,6 +22,7 @@
     --bg-soft: var(--light-bg-soft);
     --text-color-soft: var(--light-text-color-soft);
     --border: var(--light-border);
+    --button: var(--light-button-bg);
 }
 
 .theme-dark {

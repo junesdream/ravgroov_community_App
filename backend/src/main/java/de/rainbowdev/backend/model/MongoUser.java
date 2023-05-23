@@ -13,5 +13,7 @@ public record MongoUser (
 
 ) {
 
-
+        public MongoUser(String username, String password) {
+                this(null, username, password);
+        }
 }

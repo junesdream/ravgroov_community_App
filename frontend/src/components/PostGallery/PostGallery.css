@@ -1,18 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Warnes&display=swap');
+
 .post_gallery{
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 50px;
 }
 
+.post_gallery_container{
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: var(--bg);
+    color: var(--text-color);
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+ width: 100%;
+    padding:20px;
+
+}
+
 .post_gallery h1 {
+    font-family: 'Warnes', cursive;
     background-image: -webkit-linear-gradient(left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
     -webkit-animation: animatedBackground_a 5s linear infinite alternate;
     -webkit-background-clip: text;
     -webkit-text-fill-color: #0000;
     background-clip: text;
+    text-align: center;
 }
 
 @keyframes animatedBackground_a {
     0% { background-position: 0 0 }
     100% { background-position: -500px 0 }
+}
+
+.post_gallery_Btn button{
+    padding: 15px;
+    text-decoration: none;
+    background-color: black;
+    border: thick double var(--border);
+    border-radius: 10px;
+    margin:20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+    text-transform: uppercase;
 }

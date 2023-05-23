@@ -2,9 +2,14 @@ import React, {useContext} from "react";
 import './Stories.css'
 import {AuthContext} from "../../context/authContext";
 
-export default function Stories() {
+type Props = {
+    userDetails: string | undefined
+}
 
-    const {currentUser} = useContext(AuthContext)
+
+export default function Stories(props: Props) {
+
+    //const {currentUser} = useContext(AuthContext)
 
 
     const stories = [
@@ -34,8 +39,9 @@ export default function Stories() {
     return (
         <div className="stories">
             <div className="story">
-                <img src={currentUser.profilePic} alt="" />
-                <span>{currentUser.name}</span>
+              {/*<img src={currentUser.profilePic} alt="" />*/}
+              <img src="https://images.pexels.com/photos/16821086/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="" />
+                <span>{props.userDetails}</span>
                 <button>+</button>
             </div>
             {stories.map(story=>(

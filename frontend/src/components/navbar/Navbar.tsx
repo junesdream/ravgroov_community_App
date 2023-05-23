@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./Navbar.css";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
@@ -8,14 +8,38 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
-import {AuthContext} from "../../context/authContext";
+// import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {LogoutOutlined} from "@mui/icons-material";
+import {toast} from "react-toastify";
 
-export default function Navbar() {
+
+type Props = {
+    onLogout: () => Promise<void>
+    userDetails: string | undefined
+}
+
+export default function Navbar(props: Props) {
 
     const {toggle, darkMode} = useContext(DarkModeContext);
-    const {currentUser} = useContext(AuthContext);
+
+
+  const [, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+    async function logoutUser() {
+        try {
+            await props.onLogout();
+            setIsLoggedIn(false);
+            navigate("/login");
+            toast.success("Successfully logged out!")
+        } catch (r) {
+            console.error(r);
+            toast.error("Couldn't log out: " + r)
+        }
+    }
 
 
     return (
@@ -36,16 +60,12 @@ export default function Navbar() {
                 <PersonOutlinedIcon />
                 <EmailOutlinedIcon />
                 <NotificationsOutlinedIcon />
-
-                {currentUser && (
-                    <>
-                        <img src={currentUser.profilePic} alt=" " />
-                        <span>{currentUser.name}</span>
-                    </>
-                )}
+               <AccountCircleIcon id="nav_right_icon" />
+                <span>{props.userDetails} </span>
+                <Link to="#" onClick={logoutUser} className="nav_right_logout">   <LogoutOutlined />  </Link>
 
             </div>
+
         </div>
     )
-
 }

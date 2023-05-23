@@ -10,7 +10,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PostGallery from "../../components/PostGallery/PostGallery";
-import usePosts from "../../usePosts";
+import usePosts from "../../hooks/usePosts";
 
 export default function Profile() {
 
