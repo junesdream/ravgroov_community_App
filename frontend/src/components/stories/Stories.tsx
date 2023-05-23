@@ -1,6 +1,5 @@
-import React, {useContext} from "react";
+import React from "react";
 import './Stories.css'
-import {AuthContext} from "../../context/authContext";
 
 type Props = {
     userDetails: string | undefined
@@ -8,8 +7,6 @@ type Props = {
 
 
 export default function Stories(props: Props) {
-
-    //const {currentUser} = useContext(AuthContext)
 
 
     const stories = [
