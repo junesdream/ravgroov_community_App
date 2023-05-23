@@ -86,7 +86,6 @@ export default function PostDetail(props: Props) {
                 {
                     post
                         ? <div className="post_detail-content">
-                            <p>{post.id}</p>
                             <p>{post.title}</p>
                             <p>{post.userName}</p>
                             <p>{post.description}</p>
