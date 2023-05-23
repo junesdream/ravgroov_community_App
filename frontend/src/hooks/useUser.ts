@@ -67,7 +67,7 @@ export default function useUser() {
         return await axios.post("/api/users/signup", newUser, {
             withCredentials: true
         }).then((response) => {
-            setUser(response.data)
+            setUser(response.data.username)
             return true;
         }).catch((error) => {
             console.error(error);
