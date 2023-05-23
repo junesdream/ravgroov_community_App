@@ -46,7 +46,7 @@ export default function Navbar(props: Props) {
         <div className="navBar">
             <div className="nav_left">
                 <Link to="/" style={{textDecoration: "none"}}>
-                    <span> RavGroov </span>
+                    <span> RavGroov <br/> Communy </span>
                 </Link>
                 <HomeOutlinedIcon/>
                 {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle}/>}
