@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Single+Day&display=swap');
+
+body{
+    background: #222;
+}
+
+
+.landing_page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.landing_page h1{
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 80px;
+    color: white;
+    align-items: center;
+    text-align: center ;
+
+}

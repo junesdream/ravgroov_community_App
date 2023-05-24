@@ -11,6 +11,7 @@ import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
+import LandingPage from "./pages/landginpage/LandingPage";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
 
                     <Route path="/register" element={<Register createUser={createUser}/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
+                    <Route path="/landing" element={<LandingPage />}/>
                 </Routes>
 
             </BrowserRouter>
