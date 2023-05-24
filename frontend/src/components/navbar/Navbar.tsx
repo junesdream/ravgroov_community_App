@@ -32,7 +32,7 @@ export default function Navbar(props: Props) {
         try {
             await props.onLogout();
             setIsLoggedIn(false);
-            navigate("/login");
+            navigate("/landing");
             toast.success("Successfully logged out!")
         } catch (r) {
             console.error(r);
