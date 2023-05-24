@@ -28,6 +28,10 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
+                    <Route path="/landing" element={<LandingPage />} />
+                    <Route path="/register" element={<Register createUser={createUser} />} />
+                    <Route path="/login" element={<Login onLogin={login} />} />
+
                     <Route element={<ProtectedRoutes user={user} isLoading={isLoading} />}>
                         <Route
                             path="/"
@@ -42,9 +46,7 @@ function App() {
                             <Route path="/posts/add" element={<AddPost addPost={addPost} userDetails={user} />} />
                         </Route>
                     </Route>
-                    <Route path="/register" element={<Register createUser={createUser} />} />
-                    <Route path="/login" element={<Login onLogin={login} />} />
-                    <Route path="/landing" element={<LandingPage />} />
+
                 </Routes>
             </BrowserRouter>
         </div>
