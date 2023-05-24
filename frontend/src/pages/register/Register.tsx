@@ -28,21 +28,6 @@ export default function Register(props: createUserProps) {
         });
     }
 
-
-  /*     function onSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        if (user.username && user.password) {
-            props.createUser(user).then((success) => {
-                if (success) {
-                    setUser(initial);
-                    navigate("/");
-                } else {
-                    console.log("Invalid");
-                }
-            });
-        }
-    }
-*/
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         if (user.username && user.password) {

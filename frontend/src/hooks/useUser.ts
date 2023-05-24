@@ -4,12 +4,12 @@ import {toast} from "react-toastify";
 import {User, UserModel} from "../model/User";
 
 
-
 export default function useUser() {
     const [user, setUser] = useState<string>();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadUser, setLoadUser] = useState<User>();
+    const [username, setUsername ] = useState<string>("");
 
     useEffect(() => {
         function checkLoggedInUser() {
@@ -43,13 +43,13 @@ export default function useUser() {
         return axios.post("/api/users/login", undefined, {auth: {username, password}})
             .then(response => {
                 setUser(response.data);
+                setUsername(response.data);
                 toast.success("Login Successful!");
             })
             .catch((error) => {
                 toast.error("Login Failed: Please check your username and password.");
         });
     }
-
 
 
     function logout() {
@@ -76,12 +76,13 @@ export default function useUser() {
     }
 
     function getLoadUser(user: string) {
-        axios.get("/api/users/${username}")
+        axios.get("/api/users/" + user)
             .then(response => {
                 setLoadUser(response.data);
             })
             .catch(() => console.error("Couldn't load all cars"));
     }
+
 
     function logoutUser() {
         return new Promise<void>((resolve) => {

@@ -74,17 +74,17 @@
 
 .post_card-btn {
     display: flex;
-    padding: 5px;
+    padding: 10px;
+    color:  #c6e2ff;
 }
 
 .post_card-btn button {
     width: 70px;
-    padding: 10px;
+    padding: 15px 20px;
     margin: 0 10px;
     background-color: black;
     border: 3px solid deeppink;
     border-radius: 10px;
-    color: white;
     font-weight: bold;
     cursor: pointer;
 }
@@ -165,13 +165,14 @@
 }
 
 .post_card-btn button {
-    width: 70px;
+    width: 80px;
     padding: 10px;
     margin: 0 10px;
     background-color: black;
-    border: 3px solid deeppink;
+    border: 2px solid deeppink;
     border-radius: 10px;
-    color: white;
+    text-transform: uppercase;
+    color:  #c6e2ff;
     font-weight: bold;
     cursor: pointer;
 }

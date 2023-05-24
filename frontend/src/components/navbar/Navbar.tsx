@@ -10,7 +10,6 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import {Link, useNavigate} from "react-router-dom";
 import {DarkModeContext} from "../../context/darkModeContext";
-// import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {LogoutOutlined} from "@mui/icons-material";
 import {toast} from "react-toastify";
@@ -46,7 +45,7 @@ export default function Navbar(props: Props) {
         <div className="navBar">
             <div className="nav_left">
                 <Link to="/" style={{textDecoration: "none"}}>
-                    <span> RavGroov </span>
+                    <span> RavGroov <br/> Communy </span>
                 </Link>
                 <HomeOutlinedIcon/>
                 {darkMode ? <WbSunnyOutlinedIcon onClick={toggle}/> : <DarkModeOutlinedIcon onClick={toggle}/>}

@@ -1,8 +1,7 @@
 import {FormEvent, useContext, useState} from "react";
 import "./Login.css"
 import {useNavigate, Link} from "react-router-dom";
-import {AuthContext} from "../../context/authContext";
-import useUser from "../../hooks/useUser";
+
 
 type Props = {
     onLogin: (username: string, password: string) => Promise<void>
