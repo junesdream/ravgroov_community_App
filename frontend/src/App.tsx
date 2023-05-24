@@ -11,14 +11,15 @@ import Register from "./pages/register/Register";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 function App() {
 
     const {posts, addPost, updatePost, deletePost, loadAllPosts} = usePosts();
-    const {user, isLoggedIn, login, createUser, logoutUser, loadUser} = useUser();
+    const {user, isLoggedIn, login, createUser, logoutUser, isLoading, loadUser} = useUser();
 
-    //const authenticated = user !== undefined && user !== 'anonymousUser'
+    const authenticated = user !== undefined && user !== 'anonymousUser'
 
     useEffect(() => {
         if (user) {
@@ -31,8 +32,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
 
-                    {/*<Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>*/}
-
+                    <Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>
                     <Route
                         path="/"
                         element={
@@ -46,8 +46,7 @@ function App() {
                         <Route path="/posts/update/:id" element={<UpdatePost updatePost={updatePost}/>}/>
                         <Route path="/posts/add" element={<AddPost addPost={addPost}  userDetails={user}/>}/>
                     </ Route>
-
-                    {/*</Route>*/}
+                    </Route>
 
                     <Route path="/register" element={<Register createUser={createUser}/>}/>
                     <Route path="/login" element={<Login onLogin={login}/>}/>
