@@ -1,11 +1,10 @@
 import React from "react";
-import { useContext } from "react";
 import "./Comments.css";
-import { AuthContext } from "../../context/authContext";
+
 
 export default function Comments() {
 
-    //const { currentUser } = useContext(AuthContext);
+
 
     const comments = [
         {
