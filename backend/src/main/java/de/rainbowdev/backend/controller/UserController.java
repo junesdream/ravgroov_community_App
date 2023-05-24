@@ -37,12 +37,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
-
     @GetMapping("/{username}")
     public MongoUser loadMongoUserByName(@PathVariable String username) {
         return userService.findUserByUsername(username);
     }
-
 
     @PostMapping("/logout")
     public void logout(HttpSession httpSession) {

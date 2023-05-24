@@ -86,7 +86,16 @@ export default function UpdatePost(props: UpdatePostProps) {
                 <div className="detail_profile_info">
 
                     <div className="profile_center">
-                        <span>Minimal Crowd</span>
+
+
+                        {
+                            post
+                                ?
+                                <span className="profile_center_name">{post.userName}</span>
+                                : <div>Loading...</div>
+                        }
+
+
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>

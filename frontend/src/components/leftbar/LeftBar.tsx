@@ -29,7 +29,7 @@ export default function LeftBar(props: Props) {
             <div className="left_container">
                 <div className="left_menu">
                     <div className="left_user">
-                        <img  src="https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1200" alt=" "/>
+                        <img  src="https://images.pexels.com/photos/3682820/pexels-photo-3682820.jpeg?auto=compress&cs=tinysrgb&w=800" alt="userimage "/>
                         <span>{props.userDetails}</span>
                     </div>
                     <div className="left_item">

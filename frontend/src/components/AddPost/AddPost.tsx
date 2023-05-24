@@ -7,6 +7,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 
 type AddPostProps = {
     addPost: (newPost: NewPost, image: File | undefined) => void
+    userDetails: string | undefined
 }
 export default function AddPost(props: AddPostProps) {
 
@@ -57,7 +58,7 @@ export default function AddPost(props: AddPostProps) {
                     className="cover"
                 />
                 <img
-                    src="https://images.pexels.com/photos/3903092/pexels-photo-3903092.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    src="https://images.pexels.com/photos/3682820/pexels-photo-3682820.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="DJ"
                     className="profilePic"
                 />
@@ -65,9 +66,9 @@ export default function AddPost(props: AddPostProps) {
 
             <div className="profile_container">
                 <div className="detail_profile_info">
-
                     <div className="profile_center">
-                        <span>Beat Sound</span>
+                        <span className="profile_center_name">{props.userDetails} </span>
+
                         <div className="profile_center_info">
                             <div className="profile_center_item">
                                 <PlaceIcon/>
