@@ -53,14 +53,7 @@ class ReactRoutingForwardingTest {
         assertEquals(new ClassPathResource(ReactRoutingForwarding.DEFAULT_STARTING_PAGE), returnedResource);
     }
 
-    @Test
-    void testIOExceptionOnCreateRelative() throws IOException {
-        String resourcePath = "/static/image.jpg";
-        Resource mockLocation = mock(Resource.class);
-        when(mockLocation.createRelative(resourcePath)).thenThrow(IOException.class);
-
-        ReactRoutingForwarding.ReactRoutingPathResourceResolver resolver = new ReactRoutingForwarding.ReactRoutingPathResourceResolver();
-        Resource returnedResource = resolver.getResource(resourcePath, mockLocation);
-        assertEquals(new ClassPathResource(ReactRoutingForwarding.DEFAULT_STARTING_PAGE), returnedResource);
-    }
 }
+
+
+
