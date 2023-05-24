@@ -9,7 +9,7 @@ export default function useUser() {
     const [isLoggedIn] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadUser, setLoadUser] = useState<User>();
-    const [setUsername ] = useState<string>("");
+
 
     useEffect(() => {
         function checkLoggedInUser() {
