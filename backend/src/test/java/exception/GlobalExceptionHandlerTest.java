@@ -1,3 +1,4 @@
+/*
 package exception;
 
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,39 @@ class GlobalExceptionHandlerTest {
     void testHandleNoSuchElementException() {
         openMocks(this);
 
+        String errorMessage = "Element not found";
+        GlobalExceptionHandler exceptionHandler = new GlobalExceptionHandler();
+
+        when(mockException.getMessage()).thenReturn(errorMessage);
+
+        ResponseEntity<ApiError> response = exceptionHandler.handleNoSuchElementException(mockException);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals(errorMessage, response.getBody().getMessage());
+        assertEquals(Instant.now().getEpochSecond(), response.getBody().getTimestamp().getEpochSecond());
+    }
+}
+*/
+
+package exception;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.time.Instant;
+import java.util.NoSuchElementException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+class GlobalExceptionHandlerTest {
+
+    @Test
+    void testHandleNoSuchElementException() {
+        NoSuchElementException mockException = mock(NoSuchElementException.class);
         String errorMessage = "Element not found";
         GlobalExceptionHandler exceptionHandler = new GlobalExceptionHandler();
 

@@ -1,7 +1,7 @@
 import "./Register.css";
 import {Link, useNavigate} from "react-router-dom";
-import React, {ChangeEvent, FormEvent, useContext, useEffect, useState} from "react";
-import {User, UserModel} from "../../model/User";
+import React, {ChangeEvent, FormEvent, useState} from "react";
+import {UserModel} from "../../model/User";
 
 
 type createUserProps = {
@@ -51,9 +51,9 @@ export default function Register(props: createUserProps) {
                 <div className="reg_left">
                     <h1>Rave Groove Community</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-                        cum, alias totam numquam ipsa exercitationem dignissimos, error
-                        nam, consequatur.
+                        Unleash the Berlin groove with RavGroove! The ultimate non-commercial app for rave enthusiasts.
+                        Connect, discover, and immerse yourself in pulsating beats, exclusive events, and a vibrant community.
+                        Join the revolution. RavGroove - where the groove comes alive!
                     </p>
                     <span>Do you have an account?</span>
                     <Link to="/login">
@@ -78,7 +78,6 @@ export default function Register(props: createUserProps) {
                             value={user.password}
                             onChange={onChange}
                         />
-                        {/*<input name="url" type="file"  placeholder="Your image"  onChange={onFileChange}/>*/}
                         <button>Register</button>
                     </form>
                 </div>

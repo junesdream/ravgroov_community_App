@@ -6,10 +6,10 @@ import {User, UserModel} from "../model/User";
 
 export default function useUser() {
     const [user, setUser] = useState<string>();
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadUser, setLoadUser] = useState<User>();
-    const [username, setUsername ] = useState<string>("");
+
 
     useEffect(() => {
         function checkLoggedInUser() {
@@ -43,7 +43,7 @@ export default function useUser() {
         return axios.post("/api/users/login", undefined, {auth: {username, password}})
             .then(response => {
                 setUser(response.data);
-                setUsername(response.data);
+
                 toast.success("Login Successful!");
             })
             .catch((error) => {
