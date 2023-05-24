@@ -32,9 +32,9 @@ export default function Login(props: Props) {
                 <div className="log_left">
                     <h1>Hi, Happy Ravers!</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cum,
-                        alias totam numquam ipsa exercitationem dignissimos, error nam,
-                        consequatur.
+                        Unleash the Berlin groove with RavGroove! The ultimate non-commercial app for rave enthusiasts.
+                        Connect, discover, and immerse yourself in pulsating beats, exclusive events, and a vibrant community.
+                        Join the revolution. RavGroove - where the groove comes alive!
                     </p>
                     <span>Don't you have an account?</span>
                     <Link to="/register">
