@@ -29,7 +29,7 @@ public class ReactRoutingForwarding implements WebMvcConfigurer {
         }
     }
 
-    @Override
+   @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/")

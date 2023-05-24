@@ -14,6 +14,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @ExtendWith(MockitoExtension.class)
 class ReactRoutingForwardingTest {
@@ -45,5 +47,4 @@ class ReactRoutingForwardingTest {
         Resource returnedResource = resolver.getResource(resourcePath, mockLocation);
         assertEquals(new ClassPathResource(ReactRoutingForwarding.DEFAULT_STARTING_PAGE), returnedResource);
     }
-
 }
